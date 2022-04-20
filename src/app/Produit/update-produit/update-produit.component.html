@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Modifier Produit</h1>
+<div mat-dialog-content>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Libelle</mat-label>
+    <input matInput placeholder="Modifier le libelle" [(ngModel)]="produit.libelleProduit">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+  <mat-label>Prix</mat-label>
+  <input matInput placeholder="Modifier le prix" [(ngModel)]="produit.prix">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Sujet</mat-label>
+    <textarea matInput  placeholder="Modifier la description" [(ngModel)]="produit.description"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close >No Thanks</button>
+  <button mat-flat-button (click)="update()">Ok</button>
+
+</div>
