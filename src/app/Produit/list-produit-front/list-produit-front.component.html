@@ -1,80 +1,33 @@
-<!--/ Agents Star /-->
-<section class="section-agents section-t8">
+<section class="property-grid grid">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="title-wrap d-flex justify-content-between">
-          <div class="title-box">
-            <h2 class="title-a">Best product</h2>
-          </div>
-          <div class="title-link">
-            <a href="agents-grid.html">All products
-              <span class="ion-ios-arrow-forward"></span>
-            </a>
-          </div>
-        </div>
-      </div>
+    <div class="row d-flex justify-content-between">
+  <div *ngFor="let produit of produits">
+  <div class="card"style="width: 33.875rem;">
+    <iframe width="540" height="315" [src]="produit.image | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="card-body" (click)="Onpopup(produit)">
+      <h5 class="card-title" >Which Category: {{produit.categorieProduit}}  Product Name:  {{produit.libelleProduit}}</h5>
+      <p class="card-text">About our product : {{produit.description}}</p>
+      <h5 class="card-title" >Price : {{produit.prix}} DTN</h5>
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card-box-d">
-          <div class="card-img-d">
-            <img src="/assets/img/agent-4.jpg" alt="" class="img-d img-fluid">
-          </div>
-          <div class="card-overlay card-overlay-hover">
-            <div class="card-header-d">
-              <div class="card-title-d align-self-center">
-                <h3 class="title-d">
-                  <a href="agent-single.html" class="link-two">Margaret Sotillo
-                    <br> Escala</a>
-                </h3>
-              </div>
-            </div>
-            <div class="card-body-d">
-              <p class="content-d color-text-a">
-                Sed porttitor lectus nibh, Cras ultricies ligula sed magna dictum porta two.
-              </p>
-              <div class="info-agents color-a">
-                <p>
-                  <strong>Phone: </strong> +54 356 945234</p>
-                <p>
-                  <strong>Email: </strong> agents@example.com</p>
-              </div>
-            </div>
-            <div class="card-footer-d">
-              <div class="socials-footer d-flex justify-content-center">
-                <ul class="list-inline">
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-facebook" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-pinterest-p" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                  <li class="list-inline-item">
-                    <a href="#" class="link-one">
-                      <i class="fa fa-dribbble" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+  </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="overlay" *ngIf="popup">
+    <div class="popup">
+      <a class="close" (click)="popup = false">&times;</a>
+      <div class="content">
+        <app-produit-details [produit]="produitdetail" ></app-produit-details>
       </div>
     </div>
   </div>
 </section>
+
+
+
+
+
+
+
+

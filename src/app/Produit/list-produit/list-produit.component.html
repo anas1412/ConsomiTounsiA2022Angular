@@ -10,10 +10,12 @@
     <button class="btn-primary btn add" (click)="openAddDialog()"> Ajouter</button>
   </div>
 </div>
+
+
 <div class="tab">
 <table class="table">
   <thead>
-  <tr  *ngFor="let produit of produits | filter: searchText">
+  <tr>
     <th scope="col">codeProduit</th>
     <th scope="col">libelleProduit</th>
     <th scope="col">CategorieProduit</th>
@@ -24,15 +26,16 @@
     <th scope="col">Actions</th>
   </tr>
   </thead>
+
   <tbody>
-  <tr *ngFor="let produit of produits">
+  <tr *ngFor="let produit of produits | filter: searchText">
     <td>
     <img src="http://localhost:8080/SpringMVC/produit/barcode/{{produit.idProduit}}" width="200" height="50">
-  </td>
+  </td >
     <td>{{produit.libelleProduit}}</td>
     <td>{{produit.categorieProduit}}</td>
     <td>{{produit.description}}</td>
-    <td>{{produit.image}}</td>
+    <td> {{produit.image}}</td>
     <td>{{produit.prix}}</td>
     <td>{{produit.dateCreation| date}}</td>
     <td>
@@ -46,7 +49,6 @@
 
     </td>
   </tr>
-
   </tbody>
 </table>
 </div>

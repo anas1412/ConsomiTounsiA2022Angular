@@ -31,14 +31,28 @@
     <span matSuffix>.00</span>
   </mat-form-field>
 
+
   <mat-form-field appearance="outline">
-    <mat-label>Image</mat-label>
-    <input required matInput placeholder="Ajouter une Image" [(ngModel)]="produit.image">
+    <mat-label>Video</mat-label>
+    <textarea required matInput  placeholder="Ajouter une description" [(ngModel)]="produit.image"></textarea>
   </mat-form-field>
 
+  <mat-form-field appearance="fill">
+    <mat-label>Stock</mat-label>
+    <mat-select [(ngModel)]="idStock">
+      <div *ngFor="let stock of stocks">
+      <mat-option value="{{stock.idStock}}" >{{stock.libelleStock}}</mat-option>
+      </div>
+    </mat-select>
+  </mat-form-field>
+
+    <div class="col-4">
 
 
-</div>
+    </div>
+  </div>
+
+
 <div mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close >No Thanks</button>
   <button mat-flat-button (click)="add()">Ok</button>

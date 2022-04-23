@@ -1,0 +1,31 @@
+<main class="container">
+
+  <!-- Left Column / Headphones Image -->
+  <div class="left-column">
+    <iframe width="540" height="315" [src]="produit.image | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <!-- Right Column -->
+  <div class="right-column">
+
+    <!-- Product Description -->
+    <div class="product-description">
+      <span>{{produit.categorieProduit}}</span>
+      <h1>{{produit.libelleProduit}}</h1>
+      <p>{{produit.description}}</p>
+    </div>
+
+    <!-- Product Configuration -->
+    <div class="product-configuration">
+
+
+    </div>
+
+    <!-- Product Pricing -->
+    <div class="product-price">
+      <span>{{produit.prix}} DTN</span>
+      <a href="#" class="cart-btn">Add to cart</a>
+    </div>
+
+  </div>
+</main>

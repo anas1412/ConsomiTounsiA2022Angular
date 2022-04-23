@@ -6,10 +6,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { CreateReclamationComponent } from './reclamation/create-reclamation/create-reclamation.component';
-import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
-import { AdminReclamationComponent } from './reclamation/admin-reclamation/admin-reclamation.component';
-import { ListReclamationComponent } from './reclamation/list-reclamation/list-reclamation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
@@ -24,14 +20,15 @@ import { CreateProduitComponent } from './Produit/create-produit/create-produit.
 import { UpdateProduitComponent } from './Produit/update-produit/update-produit.component';
 import { ListProduitBackComponent } from './Produit/list-produit-back/list-produit-back.component';
 import { ListProduitFrontComponent } from './Produit/list-produit-front/list-produit-front.component';
-
 // @ts-ignore
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListStockComponent } from './stock/list-stock/list-stock.component';
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.component';
 import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
-
+import { ProduitDetailsComponent } from './Produit/produit-details/produit-details.component';
+import { SafePipe } from './safe.pipe';
+import { ProduitListStockComponent } from './stock/produit-list-stock/produit-list-stock.component';
 
 
 @NgModule({
@@ -40,10 +37,6 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    CreateReclamationComponent,
-    UpdateReclamationComponent,
-    AdminReclamationComponent,
-    ListReclamationComponent,
     ListProduitComponent,
     CreateProduitComponent,
     UpdateProduitComponent,
@@ -53,6 +46,9 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     CreateStockComponent,
     ListStockBackComponent,
     UpdateStockComponent,
+    ProduitDetailsComponent,
+    SafePipe,
+    ProduitListStockComponent
   ],
   imports: [
     BrowserModule,

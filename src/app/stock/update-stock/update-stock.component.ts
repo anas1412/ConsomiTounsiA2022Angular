@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Stock} from "../model/stock";
+import {IStockService} from "../services/stock.service";
 
 @Component({
   selector: 'app-update-stock',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateStockComponent implements OnInit {
 
-  constructor() { }
+  stock: Stock = new Stock();
+
+  constructor(
+    private service: IStockService,
+    private dialogRef: MatDialogRef<UpdateStockComponent>,
+    @Inject(MAT_DIALOG_DATA)  private data: any
+  ) { }
 
   ngOnInit(): void {
+    this.service.findById(this.data.id).subscribe(response => {
+      this.stock = response;
+    })
   }
 
+
+  update() {
+    this.service.update(this.stock).subscribe(r => this.dialogRef.close())
+  }
 }
