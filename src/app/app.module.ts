@@ -19,18 +19,18 @@ import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from '@angular/material/select';
-import { ListProduitComponent } from './Produit/list-produit/list-produit.component';
-import { CreateProduitComponent } from './Produit/create-produit/create-produit.component';
-import { UpdateProduitComponent } from './Produit/update-produit/update-produit.component';
-import { ListProduitBackComponent } from './Produit/list-produit-back/list-produit-back.component';
-import { ListProduitFrontComponent } from './Produit/list-produit-front/list-produit-front.component';
+import { ListEventComponent } from './event/list-event/list-event.component';
+import { CreateEventComponent } from './event/create-event/create-event.component';
+import { UpdateEventComponent } from './event/update-event/update-event.component';
+import { ParticiperComponent } from './participer/participer.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { ListEventFrontComponent } from './event/list-event-front/list-event-front.component';
+import { CreateCagnotteComponent } from './cagnotte/create-cagnotte/create-cagnotte.component';
+import { CagnotteListBackComponent } from './cagnotte/cagnotte-list-back/cagnotte-list-back.component';
+import { UpdateCagnotteComponent } from './cagnotte/update-cagnotte/update-cagnotte.component';
+import { SendMailComponent } from './send-mail/send-mail.component';
+import { DownloadPDFComponent } from './event/download-pdf/download-pdf.component';
 
-// @ts-ignore
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ListStockComponent } from './stock/list-stock/list-stock.component';
-import { CreateStockComponent } from './stock/create-stock/create-stock.component';
-import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.component';
-import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
 
 
 
@@ -44,15 +44,18 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     UpdateReclamationComponent,
     AdminReclamationComponent,
     ListReclamationComponent,
-    ListProduitComponent,
-    CreateProduitComponent,
-    UpdateProduitComponent,
-    ListProduitBackComponent,
-    ListProduitFrontComponent,
-    ListStockComponent,
-    CreateStockComponent,
-    ListStockBackComponent,
-    UpdateStockComponent,
+ 
+    ListEventComponent,
+    CreateEventComponent,
+    UpdateEventComponent,
+    ParticiperComponent,
+    ListEventFrontComponent,
+    CreateCagnotteComponent,
+    CagnotteListBackComponent,
+    UpdateCagnotteComponent,
+    SendMailComponent,
+    DownloadPDFComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    MatDatepickerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

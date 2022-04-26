@@ -1,0 +1,42 @@
+
+<h1 mat-dialog-title>Ajouter un Evénement</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Titre</mat-label>
+    <input required matInput placeholder="Ajouter un titre">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Description</mat-label>
+    <input required matInput placeholder="Ajouter un titre" >
+  </mat-form-field>
+  
+
+  
+
+  <mat-form-field appearance="outline">
+    <mat-label>Lieu</mat-label>
+    <textarea required matInput  placeholder="Ajouter une description" ></textarea>
+  </mat-form-field>
+ <br>
+  <label for="start">Date début</label>
+
+<input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31"  >
+
+       <br>
+       <label for="start">Date Fin</label>
+       <input type="date" id="start" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31" >
+
+
+  
+
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close >No Thanks</button>
+  <button mat-flat-button >Ok</button>
+
+</div>
