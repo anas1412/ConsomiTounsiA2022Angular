@@ -1,7 +1,12 @@
+<div class="search-livreur">
+  <h2> Recherche </h2>
+  <input class="fa fa-search" class="form-control" type="text" name="search" [(ngModel)]="searchText"
+         autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
+</div>
 <section class="property-grid grid">
   <div class="container">
     <div class="row d-flex justify-content-between">
-  <div *ngFor="let produit of produits">
+  <div *ngFor="let produit of produits | paginate: { itemsPerPage: 5, currentPage: page } | filter: searchText">
   <div class="card"style="width: 33.875rem;">
     <iframe width="540" height="315" [src]="produit.image | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     <div class="card-body" (click)="Onpopup(produit)">
@@ -12,6 +17,9 @@
   </div>
   </div>
     </div>
+    <br>
+    <br>
+    <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
   </div>
 
   <div class="overlay" *ngIf="popup">

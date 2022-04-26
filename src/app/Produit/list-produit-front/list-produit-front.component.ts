@@ -19,12 +19,14 @@ export class ListProduitFrontComponent implements OnInit {
   idStock: any;
   searchText: any;
   popup: boolean=false;
-
+  totalLength:any;
+  page:number = 1;
 
   constructor(
     private dialog: MatDialog,
     private service: IProduitServices,
-    private servicestock: IStockService,
+    private servicestock: IStockService
+
   ) {
   }
 
@@ -34,9 +36,11 @@ export class ListProduitFrontComponent implements OnInit {
     this.service.findAll().subscribe(data => {
       // @ts-ignore
       this.produits = data;
+
     })
 
     this.servicestock.findAll().subscribe((data)=>{this.stocks = data})
+
   }
 
 

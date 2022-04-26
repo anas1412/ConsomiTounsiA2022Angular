@@ -29,6 +29,8 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
 import { ProduitDetailsComponent } from './Produit/produit-details/produit-details.component';
 import { SafePipe } from './safe.pipe';
 import { ProduitListStockComponent } from './stock/produit-list-stock/produit-list-stock.component';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -62,7 +64,9 @@ import { ProduitListStockComponent } from './stock/produit-list-stock/produit-li
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatPaginatorModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {Produit} from "../model/produit";
 import {IProduitServices} from "../services/produit.service";
 import {MatDialogRef} from "@angular/material/dialog";
-import {Stock} from "../../stock/model/stock";
 import {IStockService} from "../../stock/services/stock.service";
 
 @Component({
