@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -31,6 +33,20 @@ import { ListStockComponent } from './stock/list-stock/list-stock.component';
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.component';
 import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
+import {CreateFactureComponent} from "./facture/create-facture/create-facture.component";
+import {DetailFactureComponent} from "./facture/detail-facture/detail-facture.component";
+import {ListFactureBackComponent} from "./facture/list-facture-back/list-facture-back.component";
+import {UpdateFactureComponent} from "./facture/update-facture/update-facture.component";
+import {CreatePaiementComponent} from "./paiement/create-paiement/create-paiement.component";
+import {UpdatePaiementComponent} from "./paiement/update-paiement/update-paiement.component";
+import {DetailPanierComponent} from "./panier/detail-panier/detail-panier.component";
+import {UpdatePanierComponent} from "./panier/update-panier/update-panier.component";
+import {ListPanierComponent} from "./panier/list-panier/list-panier.component";
+import {ListPanierProduitComponent} from "./panier-produit/list-panier-produit/list-panier-produit.component";
+import {CreatePanierComponent} from "./panier/create-panier/create-panier.component";
+import {CreatePanierProduitComponent} from "./panier-produit/create-panier-produit/create-panier-produit.component";
+import {UpdatePanierProduitComponent} from "./panier-produit/update-panier-produit/update-panier-produit.component";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -53,6 +69,20 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     CreateStockComponent,
     ListStockBackComponent,
     UpdateStockComponent,
+    CreateFactureComponent,
+    DetailFactureComponent,
+    ListFactureBackComponent,
+    UpdateFactureComponent,
+    CreatePaiementComponent,
+    UpdatePaiementComponent,
+    DetailPanierComponent,
+    CreatePaiementComponent,
+    DetailPanierComponent,
+    UpdatePanierComponent,
+    ListPanierComponent,
+    ListPanierProduitComponent,
+    CreatePanierProduitComponent,
+    UpdatePanierProduitComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +96,8 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    FontAwesomeModule,
+    Ng2SearchPipeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

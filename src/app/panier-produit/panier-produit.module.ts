@@ -13,6 +13,11 @@ import { UpdatePanierProduitComponent } from './update-panier-produit/update-pan
     CreatePanierProduitComponent,
     UpdatePanierProduitComponent
   ],
+  exports: [
+    ListPanierProduitComponent,
+    CreatePanierProduitComponent,
+    UpdatePanierProduitComponent
+  ],
   imports: [
     CommonModule,
     PanierProduitRoutingModule

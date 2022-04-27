@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {Facture} from "../model/facture";
+import {IFactureServices} from "../service/facture.service";
 
 @Component({
   selector: 'app-list-facture-back',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListFactureBackComponent implements OnInit {
 
-  constructor() { }
+  factures: Facture[] = [];
+
+  constructor(
+    private dialog: MatDialog,
+    private service: IFactureServices) {
+  }
 
   ngOnInit(): void {
+
+
+    this.service.findAll().subscribe(data => {
+      // @ts-ignore
+      this.factures = data;
+    })
   }
+
+
 
 }

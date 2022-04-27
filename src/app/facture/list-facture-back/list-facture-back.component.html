@@ -1,1 +1,24 @@
-<p>list-facture-back works!</p>
+<div class="tab">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">idFacture</th>
+      <th scope="col">Date</th>
+      <th scope="col">Type</th>
+      <th scope="col">Etat Livraison</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor = "let f of factures">
+      <td>{{f.idFacture}}</td>
+      <td>{{f.date}}</td>
+      <td>{{f.type}}</td>
+      <td> {{f.etat_livraison}}</td>
+      <td>
+        <a href="http://localhost:8080/SpringMVC/facture/printPDF/{{f.idFacture}}" class="btn btn-primary btn-lg btn-block" >Imprimer</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

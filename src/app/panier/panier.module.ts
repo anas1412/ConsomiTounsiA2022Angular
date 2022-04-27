@@ -5,17 +5,21 @@ import { PanierRoutingModule } from './panier-routing.module';
 import { CreatePanierComponent } from './create-panier/create-panier.component';
 import { UpdatePanierComponent } from './update-panier/update-panier.component';
 import { ListPanierComponent } from './list-panier/list-panier.component';
+import { DetailPanierComponent } from './detail-panier/detail-panier.component';
+import {PanierProduitModule} from "../panier-produit/panier-produit.module";
 
 
 @NgModule({
   declarations: [
     CreatePanierComponent,
     UpdatePanierComponent,
-    ListPanierComponent
+    ListPanierComponent,
+    DetailPanierComponent
   ],
   imports: [
     CommonModule,
-    PanierRoutingModule
+    PanierRoutingModule,
+    PanierProduitModule
   ]
 })
 export class PanierModule { }

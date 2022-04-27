@@ -7,6 +7,12 @@ import {ListProduitFrontComponent} from "./Produit/list-produit-front/list-produ
 import {ListProduitBackComponent} from "./Produit/list-produit-back/list-produit-back.component";
 import {ListStockComponent} from "./stock/list-stock/list-stock.component";
 import {ListStockBackComponent} from "./stock/list-stock-back/list-stock-back.component";
+import {DetailFactureComponent} from "./facture/detail-facture/detail-facture.component";
+import {ListFactureBackComponent} from "./facture/list-facture-back/list-facture-back.component";
+import {DetailPaiementComponent} from "./paiement/detail-paiement/detail-paiement.component";
+import {DetailPanierComponent} from "./panier/detail-panier/detail-panier.component";
+import {ListPanierProduitComponent} from "./panier-produit/list-panier-produit/list-panier-produit.component";
+
 
 const routes: Routes = [
   {
@@ -30,7 +36,25 @@ const routes: Routes = [
   },{
     path: 'stockback',
     component: ListStockBackComponent
-  }
+  },{
+    path: 'detailfacture',
+    component: DetailFactureComponent
+  },{
+    path: 'listfacture',
+    component: ListFactureBackComponent
+  },{
+    path: 'detailpaiement',
+    component: DetailPaiementComponent
+  },{
+  path: 'detailpanier',
+    component: DetailPanierComponent
+  },{
+  path: 'listpanierproduit',
+    component: ListPanierProduitComponent
+  },{
+    path: 'listfactureback',
+    component: ListFactureBackComponent
+}
 ];
 
 @NgModule({
