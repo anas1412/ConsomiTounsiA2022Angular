@@ -1,26 +1,47 @@
-<div class="search-livreur">
-  <h2> Recherche </h2>
-  <input class="fa fa-search" class="form-control" type="text" name="search" [(ngModel)]="searchText"
-         autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
-</div>
-<section class="property-grid grid">
-  <div class="container">
-    <div class="row d-flex justify-content-between">
-  <div *ngFor="let produit of produits | paginate: { itemsPerPage: 5, currentPage: page } | filter: searchText">
-  <div class="card"style="width: 33.875rem;">
-    <iframe width="540" height="315" [src]="produit.image | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <div class="card-body" (click)="Onpopup(produit)">
-      <h5 class="card-title" >Which Category: {{produit.categorieProduit}}  Product Name:  {{produit.libelleProduit}}</h5>
-      <p class="card-text">About our product : {{produit.description}}</p>
-      <h5 class="card-title" >Price : {{produit.prix}} DTN</h5>
-    </div>
-  </div>
-  </div>
+ <div class="container mt-5 mb-5">
+    <h4 class="text-success">Search Product</h4>
+    <div class="search-livreur" class="input-group">
+
+      <div class="form-outline">
+        <input class="form-control" type="text" [(ngModel)]="searchText"
+               autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
+      </div>
+      <button type="button" class="btn btn-primary">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
     <br>
     <br>
+
+
+    <div class="d-flex justify-content-center row"  *ngFor="let produit of produits | paginate: { itemsPerPage:5, currentPage: page } | filter: searchText">
+      <div class="col-md-10">
+        <div class="row p-2 bg-white border rounded">
+          <div class="col-md-3 mt-1">
+            <iframe width="540" height="315" [src]="produit.image | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="col-md-6 mt-1" (click)="Onpopup(produit)">
+
+          </div>
+          <div class="align-items-center align-content-center col-md-3 border-left mt-1" (click)="Onpopup(produit)">
+            <h5>{{produit.libelleProduit}}</h5>
+            <div class="d-flex flex-row">
+              <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>
+            </div>
+            <div class="mt-1 mb-1 spec-1"><span>{{produit.categorieProduit}}</span></div>
+            <p class="text-justify text-truncate para mb-0">{{produit.description}}.<br><br></p>
+            <div class="d-flex flex-row align-items-center">
+              <h4 class="mr-1">{{produit.prix}}TND</h4><span class="strike-text">15.0TND</span>
+            </div>
+            <h6 class="text-success">Free shipping</h6>
+            <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to cart</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
     <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
-  </div>
+
+
 
   <div class="overlay" *ngIf="popup">
     <div class="popup">
@@ -30,12 +51,5 @@
       </div>
     </div>
   </div>
-</section>
-
-
-
-
-
-
 
 
