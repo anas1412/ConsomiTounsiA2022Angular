@@ -11,25 +11,23 @@ export class IPanierProduitServices {
   private api_url = environment.api_url + 'panierproduit';
   constructor(private http: HttpClient) { }
 
-  public save(panierproduit: PanierProduit,produitId:Number){
-    return this.http.post(this.api_url + '/add-panierproduit/'+produitId, panierproduit);
+  public addToPanier(panierproduit: PanierProduit, produitId: Number, quantity: Number, userId: Number){
+    return this.http.post(this.api_url + '/addToPanier/'+produitId+'/'+quantity+'/'+userId, panierproduit);
   }
 
-  public findAll(){
-    return this.http.get(this.api_url + '/retrieve-all-panierproduit');
+  public updateQuantity(panierproduit: PanierProduit){
+    return this.http.put(this.api_url + '/updateQuantity/', panierproduit);
   }
 
-  public update(panierproduit: PanierProduit){
-    return this.http.put(this.api_url + '/update-panierproduit', panierproduit);
+  public getPanier(userId: number){
+    return this.http.get(this.api_url + '/getPanier/' + userId);
   }
 
-  public findById(id: number){
-    return this.http.get(this.api_url + '/retrieve-panierproduit/' + id);
+  public removeFromPanier(userId:number, produitId: number){
+    return this.http.delete(this.api_url + '/removeFromPanier/' + userId + '/' + produitId);
   }
 
-  public delete(id: number){
-    return this.http.delete(this.api_url + '/remove-panierproduit/' + id);
-  }
+
 
 
 }

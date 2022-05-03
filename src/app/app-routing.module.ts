@@ -10,7 +10,6 @@ import {ListStockBackComponent} from "./stock/list-stock-back/list-stock-back.co
 import {DetailFactureComponent} from "./facture/detail-facture/detail-facture.component";
 import {ListFactureBackComponent} from "./facture/list-facture-back/list-facture-back.component";
 import {DetailPaiementComponent} from "./paiement/detail-paiement/detail-paiement.component";
-import {DetailPanierComponent} from "./panier/detail-panier/detail-panier.component";
 import {ListPanierProduitComponent} from "./panier-produit/list-panier-produit/list-panier-produit.component";
 
 
@@ -45,9 +44,6 @@ const routes: Routes = [
   },{
     path: 'detailpaiement',
     component: DetailPaiementComponent
-  },{
-  path: 'detailpanier',
-    component: DetailPanierComponent
   },{
   path: 'listpanierproduit',
     component: ListPanierProduitComponent

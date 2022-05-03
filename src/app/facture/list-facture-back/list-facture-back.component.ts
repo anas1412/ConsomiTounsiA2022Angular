@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {Facture} from "../model/facture";
 import {IFactureServices} from "../service/facture.service";
+//import {pdf} from "../../../environments/environment";
+
 
 @Component({
   selector: 'app-list-facture-back',
@@ -11,6 +13,7 @@ import {IFactureServices} from "../service/facture.service";
 export class ListFactureBackComponent implements OnInit {
 
   factures: Facture[] = [];
+  //pdfLink: any;
 
   constructor(
     private dialog: MatDialog,
@@ -19,8 +22,10 @@ export class ListFactureBackComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //this.pdfLink = pdf;
 
-    this.service.findAll().subscribe(data => {
+
+    this.service.findByUser(1).subscribe(data => {
       // @ts-ignore
       this.factures = data;
     })

@@ -27,13 +27,18 @@ export class IFactureServices {
     return this.http.get(this.api_url + '/retrieve-facture/' + id);
   }
 
+  public findByUser(userId: number){
+    return this.http.get(this.api_url + '/retrieve-factures-by-user/' + userId);
+  }
+
   public delete(id: number){
     return this.http.delete(this.api_url + '/remove-facture/' + id);
   }
 
-  public imprimer(id: number){
-    return this.http.get(this.api_url+ '/printPDF/' + id);
+  public pdf(id: number){
+    return this.http.get(this.api_url + '/printPDF/'+ id);
   }
+
 
 
 }
