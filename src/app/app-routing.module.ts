@@ -7,6 +7,9 @@ import {ListProduitFrontComponent} from "./Produit/list-produit-front/list-produ
 import {ListProduitBackComponent} from "./Produit/list-produit-back/list-produit-back.component";
 import {ListStockComponent} from "./stock/list-stock/list-stock.component";
 import {ListStockBackComponent} from "./stock/list-stock-back/list-stock-back.component";
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -30,7 +33,18 @@ const routes: Routes = [
   },{
     path: 'stockback',
     component: ListStockBackComponent
+  },  {
+    path: 'login',
+    component: LoginComponent
+  },  {
+    path: 'register',
+    component: RegisterComponent
+  }, {
+    path: 'profile',
+    component: ProfileComponent
   }
+
+
 ];
 
 @NgModule({

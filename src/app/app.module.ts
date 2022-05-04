@@ -31,6 +31,8 @@ import { ListStockComponent } from './stock/list-stock/list-stock.component';
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
 import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.component';
 import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -53,6 +55,8 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     CreateStockComponent,
     ListStockBackComponent,
     UpdateStockComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
