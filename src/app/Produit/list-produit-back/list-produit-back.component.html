@@ -1,8 +1,17 @@
-<div class="search-livreur">
-  <input class="fa fa-search" class="form-control" type="text" name="search" [(ngModel)]="searchText"
-         autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
-</div>
+<div class="container mt-5 mb-5">
+  <h4 class="text-success">Search Product</h4>
+  <div class="search-livreur" class="input-group">
 
+    <div class="form-outline">
+      <input class="form-control" type="text" [(ngModel)]="searchText"
+             autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
+    </div>
+    <button type="button" class="btn btn-primary">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+  <br>
+  <br>
 
 
 <div class="container-fluid">
@@ -51,4 +60,5 @@
     </tr>
     </tbody>
   </table>
+</div>
 </div>

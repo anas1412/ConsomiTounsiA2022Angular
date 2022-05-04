@@ -7,6 +7,7 @@ import {ListProduitBackComponent} from "./Produit/list-produit-back/list-produit
 import {ListStockComponent} from "./stock/list-stock/list-stock.component";
 import {ListStockBackComponent} from "./stock/list-stock-back/list-stock-back.component";
 import {ProduitDetailsComponent} from "./Produit/produit-details/produit-details.component";
+import {DownloadProduitComponent} from "./Produit/download-produit/download-produit.component";
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
   },{
     path: 'stockback',
     component: ListStockBackComponent
+  },{
+    path: 'prodpdf',
+    component: DownloadProduitComponent
   }
 ];
 

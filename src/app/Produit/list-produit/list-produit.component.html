@@ -1,7 +1,16 @@
-<div class="search-livreur">
-  <input class="fa fa-search" class="form-control" type="text" name="search" [(ngModel)]="searchText"
-         autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
-</div>
+<div class="container mt-5 mb-5">
+  <div class="search-livreur" class="input-group">
+
+    <div class="form-outline">
+      <input class="form-control" type="text" [(ngModel)]="searchText"
+             autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
+    </div>
+    <button type="button" class="btn btn-primary">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+  <br>
+  <br>
 
 
 
@@ -9,33 +18,30 @@
   <div class="col-12 d-flex justify-content-lg-end">
     <button class="btn-primary btn add" (click)="openAddDialog()"> Ajouter</button>
   </div>
+  <div class="col-12 d-flex justify-content-lg-end">
+    <a class="nav-link" href="/" routerLink="/prodpdf">Download pdf</a>
+  </div>
 </div>
 
 
-<div class="tab">
-
-<table class="table">
-
+<table class="table table-striped">
   <thead>
   <tr>
-    <th scope="col">codeProduit</th>
-    <th scope="col">libelleProduit</th>
-    <th scope="col">CategorieProduit</th>
-    <th scope="col">description</th>
-    <th scope="col">image</th>
-    <th scope="col">prix</th>
+    <th scope="col">Code</th>
+    <th scope="col">libelle</th>
+    <th scope="col">Categorie</th>
+    <th scope="col">Description</th>
+    <th scope="col">Link</th>
+    <th scope="col">Prix</th>
     <th scope="col">Date</th>
     <th scope="col">Actions</th>
   </tr>
   </thead>
-
   <tbody>
-
   <tr *ngFor="let produit of produits | filter: searchText">
-
     <td>
-    <img src="http://localhost:8080/SpringMVC/produit/barcode/{{produit.idProduit}}" width="200" height="50">
-  </td >
+      <img src="http://localhost:8080/SpringMVC/produit/barcode/{{produit.idProduit}}" width="200" height="50">
+    </td>
     <td>{{produit.libelleProduit}}</td>
     <td>{{produit.categorieProduit}}</td>
     <td>{{produit.description}}</td>
@@ -52,11 +58,16 @@
       </button>
 
     </td>
-
   </tr>
-
   </tbody>
-
 </table>
 
+<div class="d-flex justify-content-between p-2">
+
+  <select class="form-select" style="width: auto" >
+    <option [ngValue]="2">2 items per page</option>
+    <option [ngValue]="4">4 items per page</option>
+    <option [ngValue]="6">6 items per page</option>
+  </select>
+</div>
 </div>

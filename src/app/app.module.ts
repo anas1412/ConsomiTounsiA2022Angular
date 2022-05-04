@@ -20,7 +20,6 @@ import { CreateProduitComponent } from './Produit/create-produit/create-produit.
 import { UpdateProduitComponent } from './Produit/update-produit/update-produit.component';
 import { ListProduitBackComponent } from './Produit/list-produit-back/list-produit-back.component';
 import { ListProduitFrontComponent } from './Produit/list-produit-front/list-produit-front.component';
-// @ts-ignore
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ListStockComponent } from './stock/list-stock/list-stock.component';
 import { CreateStockComponent } from './stock/create-stock/create-stock.component';
@@ -31,6 +30,7 @@ import { SafePipe } from './safe.pipe';
 import { ProduitListStockComponent } from './stock/produit-list-stock/produit-list-stock.component';
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {NgxPaginationModule} from 'ngx-pagination';
+import {DownloadProduitComponent} from "./Produit/download-produit/download-produit.component";
 
 
 @NgModule({
@@ -50,7 +50,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     UpdateStockComponent,
     ProduitDetailsComponent,
     SafePipe,
-    ProduitListStockComponent
+    ProduitListStockComponent,
+    DownloadProduitComponent
   ],
   imports: [
     BrowserModule,
