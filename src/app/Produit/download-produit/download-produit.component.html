@@ -1,0 +1,41 @@
+<div class="container mt-5 mb-5">
+
+  <br>
+  <br>
+
+
+
+  <div class="container-fluid">
+    <div class="col-12 d-flex justify-content-lg-end">
+      <button class="btn-primary btn add" (click)="captureScreen()" id="bb"> Download</button>
+    </div>
+  </div>
+
+
+  <table class="table table-striped" id="contentToConvert">
+    <thead>
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">libelle</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Link</th>
+      <th scope="col">Price</th>
+      <th scope="col">Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let produit of produits">
+      <td>
+        <img src="http://localhost:8080/SpringMVC/produit/barcode/{{produit.idProduit}}" width="200" height="50">
+      </td>
+      <td>{{produit.libelleProduit}}</td>
+      <td>{{produit.categorieProduit}}</td>
+      <td>{{produit.description}}</td>
+      <td> {{produit.image}}</td>
+      <td>{{produit.prix}}</td>
+      <td>{{produit.dateCreation| date}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
