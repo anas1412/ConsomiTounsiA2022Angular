@@ -1,19 +1,15 @@
 export interface IReclamation{
    idReclamation?: number;
-   DateRec?: Date;
-   Description?: string;
-   Type?: string;
+   dateRec?: Date;
+   description?: string;
+   type?: string;
+  mail?: string;
 }
 
 export class Reclamation implements IReclamation{
+  [x: string]: any;
 
+  // @ts-ignore
+  constructor(public idReclamation?: number, public dateRec?: Date, public description?: string, public type?: string,mail?: string,)
 
-  constructor(
-    public idReclamation?: number,
-  public   DateRec?: Date,
-  public Description?: string,
-  public Type?: string,
-  )
-  {
-  }
 }

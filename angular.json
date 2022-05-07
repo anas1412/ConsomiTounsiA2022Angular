@@ -41,6 +41,7 @@
               "src/assets/lib/owlcarousel/assets/owl.theme.default.css",
               "src/assets/lib/owlcarousel/assets/owl.theme.green.css",
               "src/assets/css/style.css"
+
             ],
             "scripts": [
               "src/assets/lib/bootstrap/js/bootstrap.js",

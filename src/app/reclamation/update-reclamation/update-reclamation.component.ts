@@ -19,12 +19,10 @@ export class UpdateReclamationComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.findById(this.data.id).subscribe(response => {
-      this.reclamation = response;
+    this.service.findById(this.data.idReclamation).subscribe(response => {
+      this.reclamation= response;
     })
   }
-
-
   update() {
     this.service.update(this.reclamation).subscribe(r => this.dialogRef.close())
   }

@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateReclamationComponent } from './reclamation/create-reclamation/create-reclamation.component';
 import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
-import { AdminReclamationComponent } from './reclamation/admin-reclamation/admin-reclamation.component';
 import { ListReclamationComponent } from './reclamation/list-reclamation/list-reclamation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
@@ -16,24 +15,36 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+// @ts-ignore
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+// @ts-ignore
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from '@angular/material/select';
-import { ListProduitComponent } from './Produit/list-produit/list-produit.component';
-import { CreateProduitComponent } from './Produit/create-produit/create-produit.component';
-import { UpdateProduitComponent } from './Produit/update-produit/update-produit.component';
-import { ListProduitBackComponent } from './Produit/list-produit-back/list-produit-back.component';
-import { ListProduitFrontComponent } from './Produit/list-produit-front/list-produit-front.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import { FormLivreurComponent } from './livreur/form-livreur/form-livreur.component';
+import { ListLivreurComponent } from './livreur/list-livreur/list-livreur.component';
+import { UpdateLivreurComponent } from './livreur/update-livreur/update-livreur.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { LivreurDetailsComponent } from './livreur/livreur-details/livreur-details.component';
+import { HiringLivreurComponent } from './livreur/hiring-livreur/hiring-livreur.component';
+import { AnnulercommandeComponent } from './reclamation/annulercommande/annulercommande.component';
+import {MatRadioModule} from "@angular/material/radio";
+import { FormLivraisonComponent } from './livraison/form-livraison/form-livraison.component';
+import { AssignLivraisonComponent } from './livreur/assign-livraison/assign-livraison.component';
+import {MainLivraisonComponent} from "./livraison/main-livraison/main-livraison.component";
+import {LivraisonDelaiComponent} from "./livraison/livraison-delai/livraison-delai.component";
+import {LivraisonFrontComponent} from "./livraison/livraison-front/livraison-front.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+import {AgmCoreModule} from "@agm/core";
+import { ReclamationFrontComponent } from './reclamation/reclamation-front/reclamation-front.component';
+
+
+
+
+
 
 // @ts-ignore
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ListStockComponent } from './stock/list-stock/list-stock.component';
-import { CreateStockComponent } from './stock/create-stock/create-stock.component';
-import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.component';
-import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,32 +53,52 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     FooterComponent,
     CreateReclamationComponent,
     UpdateReclamationComponent,
-    AdminReclamationComponent,
     ListReclamationComponent,
-    ListProduitComponent,
-    CreateProduitComponent,
-    UpdateProduitComponent,
-    ListProduitBackComponent,
-    ListProduitFrontComponent,
-    ListStockComponent,
-    CreateStockComponent,
-    ListStockBackComponent,
-    UpdateStockComponent,
+    FormLivreurComponent,
+    ListLivreurComponent,
+    UpdateLivreurComponent,
+    LivreurDetailsComponent,
+    HiringLivreurComponent,
+    AnnulercommandeComponent,
+    FormLivraisonComponent,
+    AssignLivraisonComponent,
+    MainLivraisonComponent,
+    LivraisonDelaiComponent,
+    LivraisonFrontComponent,
+    AppComponent,
+    ReclamationFrontComponent,
+
+
+
+
+
+
+
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    FormsModule,
-    HttpClientModule,
-    MatSelectModule,
-    Ng2SearchPipeModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        FormsModule,
+        HttpClientModule,
+        MatSelectModule,
+        Ng2SearchPipeModule,
+        MatDatepickerModule,
+        ReactiveFormsModule,
+        MatRadioModule,
+        MatToolbarModule,
+        Ng2GoogleChartsModule,
+        AgmCoreModule,
+      AgmCoreModule.forRoot({
+        apiKey: 'AIzaSyAGYgVjHtRbXAjZYWma3JQCvebjynCraoQ'
+      }),
+
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

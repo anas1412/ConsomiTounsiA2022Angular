@@ -1,36 +1,61 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from "./home/home.component";
+import { ListLivreurComponent } from './livreur/list-livreur/list-livreur.component';
 import {ListReclamationComponent} from "./reclamation/list-reclamation/list-reclamation.component";
-import {ListProduitComponent} from "./Produit/list-produit/list-produit.component";
-import {ListProduitFrontComponent} from "./Produit/list-produit-front/list-produit-front.component";
-import {ListProduitBackComponent} from "./Produit/list-produit-back/list-produit-back.component";
-import {ListStockComponent} from "./stock/list-stock/list-stock.component";
-import {ListStockBackComponent} from "./stock/list-stock-back/list-stock-back.component";
+import {LivreurDetailsComponent} from "./livreur/livreur-details/livreur-details.component";
+import {HiringLivreurComponent} from "./livreur/hiring-livreur/hiring-livreur.component";
+import {AnnulercommandeComponent} from "./reclamation/annulercommande/annulercommande.component";
+import {AssignLivraisonComponent} from "./livreur/assign-livraison/assign-livraison.component";
+import {MainLivraisonComponent} from "./livraison/main-livraison/main-livraison.component";
+import {FormLivraisonComponent} from "./livraison/form-livraison/form-livraison.component";
+import {LivraisonDelaiComponent} from "./livraison/livraison-delai/livraison-delai.component";
+import {LivraisonFrontComponent} from "./livraison/livraison-front/livraison-front.component";
+import {ReclamationFrontComponent} from "./reclamation/reclamation-front/reclamation-front.component";
+
+
+
+
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   }, {
-    path: 'reclamations',
+    path: 'reclamation',
     component: ListReclamationComponent
   },{
-    path: 'produit',
-    component: ListProduitComponent
+    path: 'livreur',
+    component: ListLivreurComponent
   },{
-    path: 'produitAll',
-    component: ListProduitFrontComponent
+    path: 'livreurdetail',
+    component: LivreurDetailsComponent
   },{
-    path: 'produitback',
-    component: ListProduitBackComponent
+  path:'recruter',
+  component: HiringLivreurComponent
   },{
-    path: 'stock',
-    component: ListStockComponent
+    path: 'annulercommande',
+    component: AnnulercommandeComponent
   },{
-    path: 'stockback',
-    component: ListStockBackComponent
-  }
+  path:'assign-livraison/:id',
+    component: AssignLivraisonComponent
+}, {
+  path:'livraison',
+    component: MainLivraisonComponent
+  }, {
+    path:'add-livraison',
+    component: FormLivraisonComponent
+},{
+    path:'delai-livraison',
+    component: LivraisonDelaiComponent
+  },{
+    path:'front-livraison',
+    component: LivraisonFrontComponent
+  },{
+    path: 'front-reclamation',
+    component: ReclamationFrontComponent
+  },
+
 ];
 
 @NgModule({
