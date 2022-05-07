@@ -6,7 +6,13 @@ import { AuthService } from '../_services/auth.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
+
 export class RegisterComponent implements OnInit {
+
+  title = 'logoconsomitounsi';
+  logocomsomitounsi:string = "assets/img/1.png";
+  
   form: any = {
     username: null,
     email: null,

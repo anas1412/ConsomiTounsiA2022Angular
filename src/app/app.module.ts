@@ -33,6 +33,7 @@ import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.
 import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 
 
@@ -56,7 +57,8 @@ import { RegisterComponent } from './register/register.component';
     ListStockBackComponent,
     UpdateStockComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    BoardAdminComponent
   ],
   imports: [
     BrowserModule,

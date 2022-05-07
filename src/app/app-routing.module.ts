@@ -10,6 +10,7 @@ import {ListStockBackComponent} from "./stock/list-stock-back/list-stock-back.co
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 const routes: Routes = [
   {
@@ -36,13 +37,18 @@ const routes: Routes = [
   },  {
     path: 'login',
     component: LoginComponent
-  },  {
+  }, 
+  
+  { path: 'admin', component: BoardAdminComponent },
+
+  {
     path: 'register',
     component: RegisterComponent
   }, {
     path: 'profile',
     component: ProfileComponent
-  }
+  } ,
+ 
 
 
 ];

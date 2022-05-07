@@ -8,6 +8,10 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  title = 'logoconsomitounsi';
+  logocomsomitounsi:string = "assets/img/1.png";
+ 
   form: any = {
     username: null,
     password: null
@@ -49,4 +53,8 @@ export class LoginComponent implements OnInit {
   reloadPage(): void {
     window.location.reload();
   }
+
+
+
+  
 }
