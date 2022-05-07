@@ -1,8 +1,8 @@
-<h1 mat-dialog-title>Modifier Stock</h1>
+<h1 mat-dialog-title>Modify Stock</h1>
 <div mat-dialog-content>
 
   <mat-form-field appearance="outline">
-    <mat-label>Libelle</mat-label>
+    <mat-label>Name</mat-label>
     <input matInput placeholder="Modifier le libelle" [(ngModel)]="stock.libelleStock">
   </mat-form-field>
 
@@ -14,7 +14,7 @@
 
   <mat-form-field appearance="outline">
     <mat-label>Supplier's name</mat-label>
-    <textarea matInput  placeholder="Modifier la description" [(ngModel)]="stock.supplier_name"></textarea>
+    <input matInput placeholder="Modifier le libelle" [(ngModel)]="stock.supplier_name">
   </mat-form-field>
 
   <mat-form-field appearance="outline">

@@ -3,24 +3,24 @@
 
     <div class="form-outline">
       <input class="form-control" type="text" [(ngModel)]="searchText"
-             autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
+             autocomplete="off"  placeholder="Search here..">
     </div>
     <button type="button" class="btn btn-primary">
       <i class="fa fa-search"></i>
     </button>
   </div>
-  <br>
-  <br>
 
 
+  <div class="container-fluid">
+    <div class="col-14 d-flex justify-content-lg-end">
+      <button style="float:left; margin:5px; width:180px;" class="btn btn-success" (click)="openAddDialog()" >Add product<mat-icon style="float:left; ">add_circle_outline</mat-icon></button>
+    </div>
 
-<div class="container-fluid">
-  <div class="col-12 d-flex justify-content-lg-end">
-    <button class="btn-primary btn add" (click)="openAddDialog()"> Ajouter</button>
-  </div>
+
   <div class="col-12 d-flex justify-content-lg-end">
     <a class="nav-link" href="/" routerLink="/prodpdf">Download pdf</a>
   </div>
+</div>
 </div>
 
 
@@ -29,10 +29,10 @@
   <tr>
     <th scope="col">Code</th>
     <th scope="col">libelle</th>
-    <th scope="col">Categorie</th>
+    <th scope="col">Category</th>
     <th scope="col">Description</th>
     <th scope="col">Link</th>
-    <th scope="col">Prix</th>
+    <th scope="col">Price</th>
     <th scope="col">Date</th>
     <th scope="col">Actions</th>
   </tr>
@@ -51,23 +51,13 @@
     <td>
       <button mat-icon-button
               class="btn-primary btn edit" (click)="openUpdateDialog(produit.idProduit)" >
-        <mat-icon>edit </mat-icon>
+        <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button class="btn-danger btn" (click)="supprimer(produit.idProduit)" >
-        <mat-icon>delete </mat-icon>
+      <button mat-icon-button class="btn-danger btn" (click)="delete(produit)" >
+        <mat-icon >delete</mat-icon>
       </button>
 
     </td>
   </tr>
   </tbody>
 </table>
-
-<div class="d-flex justify-content-between p-2">
-
-  <select class="form-select" style="width: auto" >
-    <option [ngValue]="2">2 items per page</option>
-    <option [ngValue]="4">4 items per page</option>
-    <option [ngValue]="6">6 items per page</option>
-  </select>
-</div>
-</div>

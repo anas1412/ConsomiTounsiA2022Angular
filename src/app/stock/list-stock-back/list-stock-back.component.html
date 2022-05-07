@@ -1,24 +1,32 @@
-<div class="search-livreur">
-  <input class="fa fa-search" class="form-control" type="text" name="search" [(ngModel)]="searchText"
-         autocomplete="off"  placeholder="&#61442;  Taper pour chercher..">
-</div>
+<div class="container mt-5 mb-5">
+  <div class="search-livreur" class="input-group">
 
-
-
-<div class="container-fluid">
-  <div class="col-12 d-flex justify-content-lg-end">
-    <button class="btn-primary btn add" (click)="openAddDialog()"> Ajouter</button>
+    <div class="form-outline">
+      <input class="form-control" type="text" [(ngModel)]="searchText"
+             autocomplete="off"  placeholder="Search here..">
+    </div>
+    <button type="button" class="btn btn-primary">
+      <i class="fa fa-search"></i>
+    </button>
   </div>
-</div>
+
+
+
+  <div class="container-fluid">
+    <div class="col-14 d-flex justify-content-lg-end">
+      <button style="float:left; margin:5px; width:180px;" class="btn btn-success" (click)="openAddDialog()" >Add Stock<mat-icon style="float:left; ">add_circle_outline</mat-icon></button>
+    </div>
+  </div>
+
 <div class="tab">
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">libelle stock</th>
-      <th scope="col">Quantité stock</th>
-      <th scope="col">Quantité minimum stock</th>
+      <th scope="col">Libelle</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Quantity minimum</th>
       <th scope="col">Supplier</th>
-      <th scope="col">email address</th>
+      <th scope="col">Supplier Address</th>
       <th scope="col">Actions</th>
     </tr>
     </thead>
@@ -34,7 +42,7 @@
                 class="btn-primary btn edit" (click)="openUpdateDialog(stock.idStock)" >
           <mat-icon>edit </mat-icon>
         </button>
-        <button mat-icon-button class="btn-danger btn" (click)="supprimer(stock.idStock)" >
+        <button mat-icon-button class="btn-danger btn" (click)="delete(stock)" >
           <mat-icon>delete </mat-icon>
         </button>
 
@@ -52,4 +60,4 @@
     </div>
   </div>
 </div>
-
+</div>

@@ -4,6 +4,7 @@ import {Stock} from "../model/stock";
 import {IStockService} from "../services/stock.service";
 import {CreateStockComponent} from "../create-stock/create-stock.component";
 import {UpdateStockComponent} from "../update-stock/update-stock.component";
+import swal from "sweetalert";
 
 @Component({
   selector: 'app-list-stock-back',
@@ -63,6 +64,34 @@ export class ListStockBackComponent implements OnInit {
   Onpopup(idStock: any){
     this.idStock = idStock;
     this.popup = true;
+  }
+
+  delete(stock: Stock) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this stock!",
+      icon: "warning",
+      buttons: ["Cancel","Confirm"],
+      dangerMode: true,
+    })
+      .then((willDelete: any) => {
+
+        if (willDelete) {
+          let i =this.stocks.indexOf(stock)
+
+          // @ts-ignore
+          this.service.delete(stock.idStock).subscribe(
+            ()=>this.stocks.splice(i,1)
+          )
+          ;
+          swal("Stock has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Stock  is safe!");
+        }
+      });
+
   }
 
 }
