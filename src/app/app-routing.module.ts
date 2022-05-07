@@ -6,14 +6,19 @@ import {ListReclamationComponent} from "./reclamation/list-reclamation/list-recl
 import { ListEventComponent } from './event/list-event/list-event.component';
 import { CagnotteListBackComponent } from './cagnotte/cagnotte-list-back/cagnotte-list-back.component';
 import { DownloadPDFComponent } from './event/download-pdf/download-pdf.component';
+import { ListAllEventsComponent } from './event/list-all-events/list-all-events.component';
+import { ListEventFrontComponent } from './event/list-event-front/list-event-front.component';
+import { EventDetailsComponent } from './event/event-details/event-details.component';
+import { ListFrontCagnotteComponent } from './cagnotte/list-front-cagnotte/list-front-cagnotte.component';
+
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   }, {
-    path: 'reclamations',
-    component: ListReclamationComponent
+    path: 'eventfront',
+    component: ListEventFrontComponent
   }
   ,{
     path: 'eventDownload',
@@ -23,9 +28,20 @@ const routes: Routes = [
     path: 'event',
     component: ListEventComponent
   }
+
+  
   ,{
     path: 'cagnotte',
     component: CagnotteListBackComponent
+  },{
+    path: 'allevent',
+    component: ListAllEventsComponent
+  },{
+    path: 'eventdetail',
+    component: EventDetailsComponent
+  },{
+    path: 'cagnottefront',
+    component: ListFrontCagnotteComponent
   }
 ];
 

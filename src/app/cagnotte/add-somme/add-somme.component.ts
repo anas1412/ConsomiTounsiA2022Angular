@@ -4,17 +4,17 @@ import { CagnotteService } from '../services/cagnotteservice';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
-  selector: 'app-update-cagnotte',
-  templateUrl: './update-cagnotte.component.html',
-  styleUrls: ['./update-cagnotte.component.css']
+  selector: 'app-add-somme',
+  templateUrl: './add-somme.component.html',
+  styleUrls: ['./add-somme.component.css']
 })
-export class UpdateCagnotteComponent implements OnInit {
+export class AddSommeComponent implements OnInit {
   cagnotte: Cagnotte = new Cagnotte();
 
   constructor(
 
     private serviceC: CagnotteService,
-    private dialogRef: MatDialogRef<UpdateCagnotteComponent>,
+    private dialogRef: MatDialogRef<AddSommeComponent>,
     @Inject(MAT_DIALOG_DATA)  private dataC: any
   ) { }
 

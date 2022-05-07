@@ -9,15 +9,12 @@ import{UpdateEventComponent} from "../update-event/update-event.component";
 import { ParticiperComponent } from 'src/app/participer/participer.component';
 import { SendMailComponent } from 'src/app/send-mail/send-mail.component';
 
-
-
-
 @Component({
-  selector: 'app-list-event',
-  templateUrl: './list-event.component.html',
-  styleUrls: ['./list-event.component.css']
+  selector: 'app-list-all-events',
+  templateUrl: './list-all-events.component.html',
+  styleUrls: ['./list-all-events.component.css']
 })
-export class ListEventComponent implements OnInit {
+export class ListAllEventsComponent implements OnInit {
 
   events: Event[] = [];
   popup: boolean=false;
@@ -25,11 +22,12 @@ export class ListEventComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private service: EventService
+
   ) { }
 
   ngOnInit(): void {
 
-    this.service.findAll().subscribe(data => {
+    this.service.findAllNotActive().subscribe(data => {
       // @ts-ignore
       this.events = data;
     })
@@ -76,6 +74,7 @@ export class ListEventComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
 
   Onpopup(event: Event){
     this.eventdetail = event;

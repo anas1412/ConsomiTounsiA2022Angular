@@ -11,8 +11,8 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Nos incroyables évènements</h1>
-            <span class="color-text-a">tout les évènements</span>
+            <h1 class="title-single">Our events</h1>
+            <span class="color-text-a">All the events</span>
           </div>
         </div>
         <div class="col-md-12 col-lg-4">
@@ -59,15 +59,15 @@
   
   
         <div class="col-md-4" *ngFor="let event of events">
-          <div class="card-box-a card-shadow">
+          <div class="card-box-a card-shadow" (click)="Onpopup(event)" >
             <div class="img-box-a">
-              <img src="/assets/img/event.jpg" alt="" class="img-a img-fluid">
+              <img src="/assets/img/event.jpg" alt="" class="img-a img-fluid" (click)="Onpopup(event)">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
                 <div class="card-header-a">
                   <h2 class="card-title-a">
-                    <a href="#" (click)="participer()">{{event.labelle}}
+                    <a (click)="Onpopup(event)">{{event.labelle}}
                       <br /></a>
                   </h2>
                 </div>
@@ -94,20 +94,20 @@
                 <div class="card-footer-a">
                   <ul class="card-info d-flex justify-content-around">
                     <li>
-                      <h4 class="card-info-title">Date Début</h4>
+                      <h4 class="card-info-title">Start date</h4>
                       <span>{{event.dateDebut| date}}
   
                         </span>
                     </li>
   
                     <li>
-                      <h4 class="card-info-title">Date Fin</h4>
+                      <h4 class="card-info-title">End date</h4>
                       <span>{{event.dateFin| date}}</span>
                     </li>
   
               
                     <li>
-                      <h4 class="card-info-title">Lieu</h4>
+                      <h4 class="card-info-title">Place</h4>
                       <span>{{event.lieu}}</span>
                     </li>
   
@@ -125,7 +125,14 @@
   </section>
   
   
-  
+  <div class="overlay" *ngIf="popup">
+    <div class="popup">
+      <a class="close" (click)="popup = false">&times;</a>
+      <div class="content">
+        <app-event-details [event]="eventdetail" ></app-event-details>
+      </div>
+    </div>
+  </div>
   
   
   

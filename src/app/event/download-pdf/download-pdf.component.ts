@@ -4,6 +4,8 @@ import { Event } from '../model/event';
 import { jsPDF } from 'jspdf'
 import html2canvas from 'html2canvas';
 import { ViewChild, ElementRef } from '@angular/core';
+import { CagnotteService } from 'src/app/cagnotte/services/cagnotteservice';
+import { Cagnotte } from 'src/app/cagnotte/model/cagnotte';
 
 @Component({
   selector: 'app-download-pdf',
@@ -12,8 +14,10 @@ import { ViewChild, ElementRef } from '@angular/core';
 })
 export class DownloadPDFComponent implements OnInit {
   eventD: Event[] = [];
+  cagnottetD: Cagnotte[] = [];
   constructor(
-    private service: EventService
+    private service: EventService,
+    private serviceC : CagnotteService
   ) { }
 
   ngOnInit(): void {
@@ -21,6 +25,12 @@ export class DownloadPDFComponent implements OnInit {
     this.service.findAll().subscribe(data => {
       // @ts-ignore
       this.eventD= data;
+
+      
+    }),
+    this.serviceC.findAll().subscribe(data => {
+      // @ts-ignore
+      this.cagnottetD= data;
     })
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from '../model/event';
 import { EventService } from '../services/event.service';
 import {MatDialogRef} from "@angular/material/dialog";
-import { Cagnotte } from '../../cagnotte/model/cagnotte';
+import { CagnotteService } from 'src/app/cagnotte/services/cagnotteservice';
 
 
 @Component({
@@ -12,18 +12,23 @@ import { Cagnotte } from '../../cagnotte/model/cagnotte';
 })
 export class CreateEventComponent implements OnInit {
   event: Event = new Event();
+  idCagnotte: any;
+  cagnottes: any;
 
   constructor(
     private service: EventService,
+    private servicecagnotte: CagnotteService,
     private dialogRef: MatDialogRef<CreateEventComponent>
 
   ) { }
 
   ngOnInit(): void {
+    this.servicecagnotte.findAll().subscribe((data)=>{this.cagnottes = data})
   }
 
   add() {
-    this.service.save(this.event, Cagnotte).subscribe(data => this.dialogRef.close())
+    this.service.save(this.event,this.idCagnotte).subscribe(data => this.dialogRef.close())
   }
 
+ 
 }

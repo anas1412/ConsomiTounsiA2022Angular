@@ -10,7 +10,7 @@ export interface IEvent{
     lieu?: string;
     etat?: number;
     image?: string;
-    idCagnotte?: number;
+    Cagnotte?: Cagnotte;
 }
 
 
@@ -24,7 +24,7 @@ export class Event implements IEvent {
         public  lieu?: string,
         public  etat?: number,
         public image?: string,
-       public idCagnotte?: number,
+       public Cagnotte?: Cagnotte
     ) {
     }
   }

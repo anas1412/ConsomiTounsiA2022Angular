@@ -1,18 +1,20 @@
 
 export interface ICagnotte{
 idCagnotte?: number;
-Labelle?: string;
-TotalSomme?: number;
+labelle?: string;
+totalsomme?: number;
 etat?: number;
-//event?:Event
+dateCreation?:Date;
+//event?:Event;
 }
 
 export class Cagnotte implements ICagnotte {
     constructor(
       public  idCagnotte?: number,
-      public Labelle?: string,
-      public  TotalSomme?: number,
+      public labelle?: string,
+      public  totalsomme?: number,
       public  etat?: number,
+     public  dateCreation?:Date,
      // public  event?:Event
 
         ) {

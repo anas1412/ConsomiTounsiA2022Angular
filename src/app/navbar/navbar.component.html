@@ -16,8 +16,8 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="/">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/reclamations">Reclamations</a>
+    <!--    <li class="nav-item">
+          <a class="nav-link" routerLink="/allevent">Tous les évènements</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/event">Evenement</a>
@@ -25,6 +25,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/eventDownload">Télecharger évènement</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/eventfront">évènement front</a>
+        </li>-->
 
 
        
@@ -33,16 +36,42 @@
 
 
 
-        <li class="nav-item">
+      <!--  <li class="nav-item">
           <a class="nav-link" routerLink="/cagnotte">Cagnotte</a>
         </li> 
-       
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/cagnottefront">Cagnotte front</a>
+        </li> 
+       -->
        
       </ul>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Our Jackpots&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>&nbsp;&nbsp;
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="nav-link" routerLink="/cagnotte">Jackpot</a>
+          <a class="nav-link" routerLink="/cagnottefront">List of Jackpots</a>
+         
+        </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Our Events&nbsp;&nbsp;&nbsp;&nbsp;
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="nav-link" routerLink="/allevent">All events</a>
+          <a class="nav-link" routerLink="/event">Current events</a>
+          <a class="nav-link" routerLink="/eventDownload">Downloads</a>
+          <a class="nav-link" routerLink="/eventfront">Events list</a>
+        </div>
+      </div>
     </div>
-    <button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
+    <!--<button type="button" class="btn btn-b-n navbar-toggle-box-collapse d-none d-md-block" data-toggle="collapse"
             data-target="#navbarTogglerDemo01" aria-expanded="false">
       <span class="fa fa-search" aria-hidden="true"></span>
-    </button>
+    </button> -->
   </div>
 </nav>

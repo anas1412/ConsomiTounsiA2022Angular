@@ -13,6 +13,8 @@ import { SendMailComponent } from 'src/app/send-mail/send-mail.component';
 })
 export class ListEventFrontComponent implements OnInit {
   events: Event[] = [];
+  popup: boolean=false;
+  eventdetail?: Event;
   constructor(
   
       private dialog: MatDialog,
@@ -42,10 +44,10 @@ export class ListEventFrontComponent implements OnInit {
   
 
 
-  participer(){
-    SendMailComponent
-    }
-
+  Onpopup(event: Event){
+    this.eventdetail = event;
+    this.popup = true;
+  }
   
 
 }

@@ -30,6 +30,12 @@ import { CagnotteListBackComponent } from './cagnotte/cagnotte-list-back/cagnott
 import { UpdateCagnotteComponent } from './cagnotte/update-cagnotte/update-cagnotte.component';
 import { SendMailComponent } from './send-mail/send-mail.component';
 import { DownloadPDFComponent } from './event/download-pdf/download-pdf.component';
+import { ListAllEventsComponent } from './event/list-all-events/list-all-events.component';
+import { EventDetailsComponent } from './event/event-details/event-details.component';
+import { ListFrontCagnotteComponent } from './cagnotte/list-front-cagnotte/list-front-cagnotte.component';
+import { AddSommeComponent } from './cagnotte/add-somme/add-somme.component';
+
+
 
 
 
@@ -55,6 +61,11 @@ import { DownloadPDFComponent } from './event/download-pdf/download-pdf.componen
     UpdateCagnotteComponent,
     SendMailComponent,
     DownloadPDFComponent,
+    ListAllEventsComponent,
+    EventDetailsComponent,
+    ListFrontCagnotteComponent,
+    AddSommeComponent,
+    
 
   ],
   imports: [
@@ -69,7 +80,8 @@ import { DownloadPDFComponent } from './event/download-pdf/download-pdf.componen
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    
     
   ],
   providers: [],

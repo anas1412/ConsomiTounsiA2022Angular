@@ -1,17 +1,17 @@
 
-<h1 mat-dialog-title>Add a kitty</h1>
+<h1 mat-dialog-title>donnation</h1>
 <div mat-dialog-content>
-  <mat-form-field appearance="outline" id="titre">
-    <mat-label>Title</mat-label>
-    <input required matInput placeholder="add a title" [(ngModel)]="cagnotte.labelle">
-  </mat-form-field>
+    <!-- <mat-form-field appearance="outline" id="titre">
+    <mat-label>Titre</mat-label>
+    <input required matInput placeholder="Ajouter un titre" disabled="true" [(ngModel)]="cagnotte.labelle">
+  </mat-form-field> -->
   <!--
   <mat-form-field appearance="outline">
     <mat-label>Somme Totale</mat-label>
     <input required matInput placeholder="Ajouter une somme" [(ngModel)]="cagnotte.totalsomme">
   </mat-form-field> -->
   <mat-form-field appearance="fill" floatLabel="always" id="somme">
-    <mat-label>donate</mat-label>
+    <mat-label>Give Donation</mat-label>
     <input matInput type="number" class="example-right-align" placeholder="donation" [(ngModel)]="cagnotte.totalsomme">
     <span matPrefix>DT&nbsp;</span>
     <span matSuffix>.00</span>
@@ -59,6 +59,6 @@
 </div>
 <div mat-dialog-actions align="end">
   <button mat-raised-button mat-dialog-close >No Thanks</button>
-  <button mat-flat-button (click)="add()">Ok</button>
+  <button mat-flat-button (click)="updateC()">Ok</button>
 
 </div>
