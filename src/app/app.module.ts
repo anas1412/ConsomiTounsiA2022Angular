@@ -47,6 +47,7 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

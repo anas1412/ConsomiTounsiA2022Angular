@@ -23,11 +23,13 @@ export class IPanierProduitServices {
     return this.http.get(this.api_url + '/getPanier/' + userId);
   }
 
+  public getPanierProduit(ppId: number){
+    return this.http.get(this.api_url + '/getPanierProduit/' + ppId);
+  }
+
   public removeFromPanier(userId:number, produitId: number){
     return this.http.delete(this.api_url + '/removeFromPanier/' + userId + '/' + produitId);
   }
-
-
 
 
 }

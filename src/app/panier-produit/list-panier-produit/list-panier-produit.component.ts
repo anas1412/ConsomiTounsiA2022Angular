@@ -7,6 +7,7 @@ import {iPanierProduit, PanierProduit} from "../model/panierproduit";
 import {MatDialog} from "@angular/material/dialog";
 import {ListFactureBackComponent} from "../../facture/list-facture-back/list-facture-back.component";
 import {CreatePaiementComponent} from "../../paiement/create-paiement/create-paiement.component";
+import {CreateFactureComponent} from "../../facture/create-facture/create-facture.component";
 
 
 @Component({
@@ -27,13 +28,13 @@ export class ListPanierProduitComponent implements OnInit {
 
   ngOnInit(): void {
 
-    console.log(this.panierProduits.length);
+
 
 
     this.service.getPanier(1).subscribe(data => {
       // @ts-ignore
       this.panierProduits = data;
-      console.log(this.panierProduits);
+      console.log(data);
     });
 
 
@@ -43,9 +44,10 @@ export class ListPanierProduitComponent implements OnInit {
 
   updateQ(pp:any) {
     this.service.updateQuantity(pp)
-      .subscribe(data => {
-        console.log(data);
+      .subscribe(r => {
+        //console.log(data);
         //this.ngOnInit();
+
       }, error => console.log(error));
   }
 
@@ -57,9 +59,14 @@ export class ListPanierProduitComponent implements OnInit {
 
   openShowDialog2() {
     const dialogRef = this.dialog.open(CreatePaiementComponent, {
-      width: '800px'
+      width: '800px',
+      data: {
+        p: this.total
+      }
     });
   }
+
+
 
   //getSomme(){
   //  this.somme = 500;
@@ -91,7 +98,8 @@ export class ListPanierProduitComponent implements OnInit {
   }
 
   getTotal(){
-    this.total = this.getSomme() + (this.getSomme() / 100 ) * 5
+    this.total = this.getSomme() + (this.getSomme() / 100 ) * 5;
+
     return this.total;
   }
 

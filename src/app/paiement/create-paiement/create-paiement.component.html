@@ -21,19 +21,19 @@
       <div class="col-12">
         <div class="d-flex flex-column">
           <p class="text mb-1">Votre carte bancaire</p>
-          <input class="form-control mb-3" type="text" placeholder="1234 5678 435678">
+          <input class="form-control mb-3" type="number" placeholder="1234 5678 435678" [(ngModel)]="paiement.card">
         </div>
       </div>
       <div class="col-6">
         <div class="d-flex flex-column">
           <p class="text mb-1">Date d'expiration</p>
-          <input class="form-control mb-3" type="text" placeholder="MM/YYYY">
+          <input class="form-control mb-3" type="text" placeholder="MM/YYYY" [(ngModel)]="paiement.exp">
         </div>
       </div>
       <div class="col-6">
         <div class="d-flex flex-column">
           <p class="text mb-1">CVV/CVC</p>
-          <input class="form-control mb-3 pt-2 " type="password" placeholder="***">
+          <input class="form-control mb-3 pt-2 " type="password" placeholder="***" [(ngModel)]="paiement.cvc" >
         </div>
       </div>
 
@@ -41,8 +41,8 @@
 
       <div class="col-12">
         <div class="btn btn-primary mb-3" (click)="add()" >
-          <span class="ps-3">500 DT</span>
-          <span class="fas fa-arrow-right"></span>
+          <span class="ps-3">Payer {{price}} DT</span>
+          <span class="fa fa-arrow-right"></span>
         </div>
       </div>
     </div>

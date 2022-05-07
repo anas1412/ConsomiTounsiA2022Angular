@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, OnInit} from '@angular/core';
 import {Facture} from "../model/facture";
 import {IFactureServices} from "../service/facture.service";
 import {IPaiementServices} from "../../paiement/service/paiement.service";
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {Paiement} from "../../paiement/model/paiement";
 
 @Component({
   selector: 'app-create-facture',
@@ -10,27 +11,24 @@ import {IPaiementServices} from "../../paiement/service/paiement.service";
   styleUrls: ['./create-facture.component.css']
 })
 export class CreateFactureComponent implements OnInit {
-
+  //paiement: Paiement;
   facture: Facture = new Facture();
-  paiements: any;
-  idPaiement: any;
-  idUser: any;
-
+  test: any = this.data.id;
   constructor(
     private service: IFactureServices,
-    private servicepaiement: IPaiementServices,
-    private dialogRef: MatDialogRef<CreateFactureComponent>
+    private dialogRef: MatDialogRef<CreateFactureComponent>,
+    private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA)  private data: any
   ) { }
 
   ngOnInit(): void {
 
-  this.servicepaiement.findAll().subscribe((data)=>{this.paiements = data})
-
   }
 
   add() {
-    this.service.save(this.facture,this.idPaiement).subscribe(data => this.dialogRef.close())
-
+    this.service.save(this.facture,this.data.id).subscribe(r =>
+    this.dialogRef.close())
+    alert("La list des factures à été mise a jour!")
   }
 
 }

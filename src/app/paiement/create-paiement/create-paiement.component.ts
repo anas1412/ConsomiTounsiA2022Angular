@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Paiement} from "../model/paiement";
 import {IPaiementServices} from "../service/paiement.service";
 import {ListPanierProduitComponent} from "../../panier-produit/list-panier-produit/list-panier-produit.component";
 import {Facture} from "../../facture/model/facture";
 import {IFactureServices} from "../../facture/service/facture.service";
+import {ListFactureBackComponent} from "../../facture/list-facture-back/list-facture-back.component";
+import {IPanierProduitServices} from "../../panier-produit/service/panierproduit.service";
+import {CreateFactureComponent} from "../../facture/create-facture/create-facture.component";
 
 @Component({
   selector: 'app-create-paiement',
@@ -13,11 +16,14 @@ import {IFactureServices} from "../../facture/service/facture.service";
 })
 export class CreatePaiementComponent implements OnInit {
   paiement: Paiement = new Paiement();
-  facture: Facture = new Facture();
+  private p?: Paiement;
+  price: any = this.data.p;
+
   constructor(
     private service: IPaiementServices,
-    private fservice: IFactureServices,
-    private dialogRef: MatDialogRef<CreatePaiementComponent>
+    private dialogRef: MatDialogRef<CreatePaiementComponent>,
+    private dialog: MatDialog,
+    @Inject(MAT_DIALOG_DATA)  private data: any
   ) {}
 
   ngOnInit(): void {
@@ -25,21 +31,27 @@ export class CreatePaiementComponent implements OnInit {
 
   add() {
 
-    this.service.save(this.paiement,1).subscribe(data =>
-      console.log(data))
-      //this.dialogRef.close())
-
-      this.addFacture();
-    alert('Paiement réussi, veuillez consulter votre list des factures')
-  }
-
-
-  addFacture(){
-    this.facture.paiement = this.paiement;
-    this.facture.user = this.paiement.user;
-    this.fservice.save(this.paiement,1).subscribe(data =>this.dialogRef.close()
+    this.service.save(this.paiement,1).subscribe(r =>
+      //this.p = r,
+      this.openShowDialog3(r)
+      //this.dialogRef.close()
     )
+
+    //alert('Paiement réussi, veuillez consulter votre list des factures')
+    //)
   }
+
+  openShowDialog3(r: any) {
+    const dialogRef = this.dialog.open(CreateFactureComponent, {
+      width: '400px',
+      data: {
+        id: r.idPaiement
+      }
+
+    });
+  }
+
+
 
 
 }
