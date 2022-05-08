@@ -10,6 +10,7 @@ import { Livraison } from '../model/livraison';
 import {Chart} from "chart.js";
 import {Livreur} from "../../livreur/model/livreur";
 import {GoogleChartInterface, GoogleChartType} from "ng2-google-charts";
+import {keyframes} from "@angular/animations";
 
 
 @Component({
@@ -23,8 +24,7 @@ id:any
   x1: any;
   x: any
   x2: any;
-  undelivered: number;
-  delivered: number;
+
   Livraison: any = [];
   searchText: any;
   http: HttpClient;
@@ -39,22 +39,64 @@ id:any
   constructor(private livraisonService: ILivraisonService, private router: Router) {
   }
 
+  pdelivered:any
+  pundelivered:any
+  countliv:any
+  undelivered:any
+  delivered:any
+  ngOnInit(): void {
+    this.loadLivraisons()
 
-  // @ts-ignore
+    this.countliv = Number(localStorage.getItem('countLivraison'));
+    console.log("Nombre de livraison " + this.countliv)
+    this.delivered = localStorage.getItem('delivered')
+    console.log("Non Délivrée " + this.delivered)
+    this.undelivered = Number(this.countliv) - Number(this.delivered)
+    console.log("Délivrée " + this.undelivered)
 
-  pieChart: GoogleChartInterface = {
+    this.pundelivered = ((this.undelivered / Number(this.countliv)) * 100)
+    this.pdelivered = 100 - this.pundelivered
+    console.log("pourcentage undelivered: " + this.pundelivered)
+    console.log("pourcentage delivered: " + this.pdelivered)
+
+    this.GoogleChartInterface = {
+
       chartType: GoogleChartType.PieChart,
       dataTable: [
-        // @ts-ignore
         ['Livraison non delivrée', 'Livraison  delivrée'],
-        // @ts-ignore
-        ['delivered',  3],
-        // @ts-ignore
-        ['undelivered', 1],
+        ['delivered', this.pdelivered],
+        ['undelivered', this.pundelivered],
 
       ],
+      //firstRowIsData: true,
       options: {'title': 'Delivery'},
     };
+  }
+  generateChart (){
+
+    this.livraisonService.CountDelievered().subscribe(
+      // @ts-ignore
+      (data: number) => {
+        this.x1 = data
+        localStorage.setItem('delivered', this.x1);
+        console.log(this.x1)
+      }
+    )
+    return this.x1
+  }
+
+  generateChart2(){
+
+    this.livraisonService.CountUndelievered().subscribe(
+      // @ts-ignore
+      (data: number) => {
+        this.x2 = data
+        localStorage.setItem('undelivered', this.x2);
+        console.log(this.x2)
+      }
+    )
+    return this.x2
+  }
 
   //Get list of livraisons
   loadLivraisons() {
@@ -66,48 +108,12 @@ id:any
     })
   }
 
-  ngOnInit(): void {
-    this.loadLivraisons()
-
-    let countliv = Number(localStorage.getItem('countLivraison'));
-    console.log("Nombre de livraison " + countliv)
-    let delivered = localStorage.getItem('delivered')
-    console.log("Délivrée " + delivered)
-    let undelivered = Number(countliv) - Number(delivered)
-    console.log("Non délivrée " + undelivered)
-
-    let pundelivered = ((undelivered / Number(countliv)) * 100)
-    let pdelivered = 100 - pundelivered
-    console.log("pourcentage undelivered: " + pundelivered)
-    console.log("pourcentage delivered: " + pdelivered)
-  }
 
   return() {
     this.router.navigate(['/livreur'])
 
   }
-  generateChart (x:number ){
 
-    this.livraisonService.CountDelievered().subscribe(
-      // @ts-ignore
-      (data: number) => {
-        this.x1 = data
-        localStorage.setItem('delivered', this.x1);
-        console.log(this.x1)
-        return this.x1
-      }
-    )
-    this.livraisonService.CountUndelievered().subscribe(
-      // @ts-ignore
-      (data: number) => {
-        this.x2 = data
-        localStorage.setItem('undelivered', this.x2);
-        console.log(this.x2)
-        return this.x2
-      }
-    );
-
-  }
   //update
   update(livraison: Livraison)
   {
@@ -119,6 +125,7 @@ id:any
   }
 
   // Delete livraison
+  GoogleChartInterface: any;
   delete(livraison: Livraison) {
     swal({
       title: "Are you sure?",

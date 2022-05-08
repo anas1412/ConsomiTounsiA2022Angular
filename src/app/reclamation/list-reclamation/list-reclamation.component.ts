@@ -20,6 +20,7 @@ export class ListReclamationComponent implements OnInit {
   y: Subscription
   i: number
   type:string
+  Reclamation: any= [];
   reclamation:Reclamation
   reclamations: Reclamation[] = [];
   searchText:any;
@@ -91,12 +92,32 @@ export class ListReclamationComponent implements OnInit {
       ()=>this.router.navigate(['/reclamation'])
     )
   }
-  traiterReclamation(){
-    if(this.type){
-      this.reclamation.type="Réparation"
-    this.service.traiterReclamation3().subscribe(
-      ()=>this.router.navigate(['/reclamation'])
-    )
-  }}
+  delete(reclamation:Reclamation) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this reclamation!",
+      icon: "warning",
+      buttons: ["Cancel","Confirm"],
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+
+        if (willDelete) {
+          let i =this.Reclamation.indexOf(reclamation)
+
+          // @ts-ignore
+          this.service.delete(reclamation.idReclamation).subscribe(
+            ()=>this.Reclamation.splice(i,1)
+          )
+          ;
+          swal("Reclamation has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Reclamation is safe!");
+        }
+      });
+
+  }
 }
 

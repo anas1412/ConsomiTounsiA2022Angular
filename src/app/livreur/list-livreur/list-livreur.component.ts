@@ -6,6 +6,7 @@ import {FormLivreurComponent} from "../form-livreur/form-livreur.component";
 import {UpdateLivreurComponent} from "../update-livreur/update-livreur.component";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Livraison} from "../../livraison/model/livraison";
+import swal from "sweetalert";
 
 
 @Component({
@@ -25,6 +26,7 @@ export class ListLivreurComponent implements OnInit {
   Livraison: any= [];
   id:any
   idliv:any
+  Livreur: any = [];
 livraison:Livraison
   map:any;
   @ViewChild('mapElement') mapElement:any;
@@ -87,9 +89,32 @@ livraison:Livraison
       ()=>this.router.navigate(['/livreur']))
 
   }
-assign(){
-  this.livraison.statusLiv=false
-  this.service.assign(this.idliv,this.id).subscribe(
-    ()=>this.router.navigate(['/livraison']))
-}
+
+  delete(livreur: Livreur) {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this delivery man!",
+      icon: "warning",
+      buttons: ["Cancel","Confirm"],
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+
+        if (willDelete) {
+          let i =this.Livreur.indexOf(livreur)
+
+          // @ts-ignore
+          this.service.delete(livreur.idLivreur).subscribe(
+            ()=>this.Livreur.splice(i,1)
+          )
+          ;
+          swal("Delivery man has been deleted!", {
+            icon: "success",
+          });
+        } else {
+          swal("Delivery man is safe!");
+        }
+      });
+
+  }
 }

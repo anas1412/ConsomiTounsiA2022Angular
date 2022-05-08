@@ -66,49 +66,20 @@ export class FormLivreurComponent implements OnInit {
 
     }
   }
-  // @ts-ignore
-  public imagePath;
-  // @ts-ignore
-  livreur:Livreur[];
-  imgURL:any;
-  // @ts-ignore
-  public message: string;
 
-  // @ts-ignore
-  preview(files) {
-    if (files.length === 0)
-      return;
-
-    var mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
-      return;
-    }
-
-    var reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
-      this.imgURL = reader.result;
-    }
-  }
-  // @ts-ignore
   @ViewChild('fileInput') fileInput: ElementRef;
-  // @ts-ignore
-  imgURL = 'Choose File';
+  fileAttr = 'Choose File';
   uploadFileEvt(imgFile: any) {
     if (imgFile.target.files && imgFile.target.files[0]) {
-      // @ts-ignore
-      this.imgURL = '';
+      this.fileAttr = '';
       Array.from(imgFile.target.files).forEach((file: any) => {
-        // @ts-ignore
-        this.imgURL += file.name + ' - ';
+        this.fileAttr += file.name + ' - ';
       });
       // HTML5 FileReader API
       let reader = new FileReader();
       reader.onload = (e: any) => {
         let image = new Image();
-        image.src = e.target.result;
+        image.src = e.target.result.replace("C:\\fakepath\\", "");
         image.onload = (rs) => {
           let imgBase64Path = e.target.result;
         };
@@ -117,7 +88,7 @@ export class FormLivreurComponent implements OnInit {
       // Reset if duplicate image uploaded again
       this.fileInput.nativeElement.value = '';
     } else {
-      this.imgURL= 'Choose File';
+      this.fileAttr = 'Choose File';
     }
   }
 }
