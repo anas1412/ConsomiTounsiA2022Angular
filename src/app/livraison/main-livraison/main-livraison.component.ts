@@ -44,16 +44,28 @@ id:any
   countliv:any
   undelivered:any
   delivered:any
+  generateChart (){
+
+    this.livraisonService.CountDelievered().subscribe(
+      // @ts-ignore
+      (data: number) => {
+        this.x1 = data
+        localStorage.setItem('delivered', this.x1);
+        console.log(this.x1)
+      }
+    )
+  }
+
+
   ngOnInit(): void {
     this.loadLivraisons()
-
+this.generateChart()
     this.countliv = Number(localStorage.getItem('countLivraison'));
     console.log("Nombre de livraison " + this.countliv)
     this.delivered = localStorage.getItem('delivered')
-    console.log("Non Délivrée " + this.delivered)
+    console.log("Délivrée " + this.delivered)
     this.undelivered = Number(this.countliv) - Number(this.delivered)
-    console.log("Délivrée " + this.undelivered)
-
+    console.log("Non Délivrée " + this.undelivered)
     this.pundelivered = ((this.undelivered / Number(this.countliv)) * 100)
     this.pdelivered = 100 - this.pundelivered
     console.log("pourcentage undelivered: " + this.pundelivered)
@@ -72,31 +84,7 @@ id:any
       options: {'title': 'Delivery'},
     };
   }
-  generateChart (){
 
-    this.livraisonService.CountDelievered().subscribe(
-      // @ts-ignore
-      (data: number) => {
-        this.x1 = data
-        localStorage.setItem('delivered', this.x1);
-        console.log(this.x1)
-      }
-    )
-    return this.x1
-  }
-
-  generateChart2(){
-
-    this.livraisonService.CountUndelievered().subscribe(
-      // @ts-ignore
-      (data: number) => {
-        this.x2 = data
-        localStorage.setItem('undelivered', this.x2);
-        console.log(this.x2)
-      }
-    )
-    return this.x2
-  }
 
   //Get list of livraisons
   loadLivraisons() {
