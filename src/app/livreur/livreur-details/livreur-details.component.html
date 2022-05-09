@@ -1,21 +1,22 @@
-<div class="page-content page-container" id="page-content">
+
+<div class="page-content page-container justify-content-center custom-row" id="page-content">
   <div class="">
     <div class="row container d-flex justify-content-center">
       <div class="col-xl-9 col-md-12">
         <div class="card user-card-full">
-          <div class="row m-l-0 m-r-0">
-            <div class="col-sm-4 bg-c-lite-green provider-profile">
+          <div class="text-body m-l-0 m-r-0">
+            <div class="card-body bg-c-lite-green provider-profile">
               <div class="card-block text-center text-white">
-                <div class="m-b-20">
-                  <img [src]="imgURL" height="200" *ngIf="imgURL"  >{{livreur.imgURL}}
-                <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"><h5>{{livreur.nom}}</h5> </i>
+                <div class="m-auto">
+                  <img class="img-responsive" src="assets/img5.png">
+                <i class=" mdi mdi-square-edit-outline  icon-edit m-t-10 f-16"><h5>{{livreur.nom}}</h5> </i>
                 <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"><h5>{{livreur.prenom}}</h5> </i>
                   <div class="card-body text-justify text-white">
-                  <div class="m-b-60">
-                  <i class="ion-md-information-circle-outline  m-t-20 f-20"><h6>Ville : {{livreur.ville}}</h6> </i>
-                  <i class="ion-md-information-circle-outline m-t-20 f-20"><h6>Téléphone :{{livreur.telephone}}</h6> </i>
-                    <i class="ion-md-information-circle-outline m-t-20 f-20"><h6>Email :{{livreur.adresseEmail}}</h6> </i>
-                    <i class="align-self-auto m-t-50 f-50"><h6>Date d'ajout :{{livreur.dateAjout| date:'longDate'}}</h6> </i>
+                  <div class="m-auto">
+                    <i class="ion-md-information-circle-outline  m-t-20 f-20"><h6>Ville : {{livreur.ville}}</h6> </i>
+                  <i class="ion-md-information-circle "><h6>Téléphone : {{livreur.telephone}}</h6> </i>
+                    <i class="ion-md-information-circle"><h6>Email : {{livreur.adresseEmail}}</h6> </i>
+                    <i class="ion-md-information-circle"><h6>Date d'ajout : {{livreur.dateAjout| date:'longDate'}}</h6> </i>
             </div>
             </div>
           </div>

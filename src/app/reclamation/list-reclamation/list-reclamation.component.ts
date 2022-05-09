@@ -7,6 +7,7 @@ import {UpdateReclamationComponent} from "../update-reclamation/update-reclamati
 import swal from "sweetalert";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
+import {GoogleChartType} from "ng2-google-charts";
 
 
 
@@ -20,8 +21,10 @@ export class ListReclamationComponent implements OnInit {
   y: Subscription
   i: number
   type:string
+  countReclamation: any;
   Reclamation: any= [];
   reclamation:Reclamation
+  daterec:any
   reclamations: Reclamation[] = [];
   searchText:any;
   @Input() listReclamation: Reclamation[];
@@ -119,5 +122,8 @@ export class ListReclamationComponent implements OnInit {
       });
 
   }
+
+
+
 }
 

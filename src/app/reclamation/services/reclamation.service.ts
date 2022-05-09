@@ -2,11 +2,14 @@ import { Injectable } from '@angular/core';
 import {environment} from "../../../environments/environment";
 import {Reclamation} from "../model/reclamation";
 import {HttpClient} from "@angular/common/http";
+import {Livraison} from "../../livraison/model/livraison";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class IReclamationService {
+  CurrentReclamation:Reclamation;
   private api_url = environment.api_url + 'Reclamation';
   constructor(private http: HttpClient) { }
 
@@ -42,4 +45,5 @@ export class IReclamationService {
     // @ts-ignore
     return this.http.post(this.api_url + '/traiterReclamation3');
   }
+
 }
