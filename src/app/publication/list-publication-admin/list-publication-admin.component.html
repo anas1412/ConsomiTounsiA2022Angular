@@ -1,0 +1,150 @@
+<div  style="margin: 5%;" class="card-wrapper row">
+<form class="form" [formGroup]="form">
+  <div class="form-group">
+    <label for="user">User</label>
+    <select  (change)="somethingChanged()" formControlName="user" name="user" class="form-control" id="user">
+      <option style="background-color: #fe5d93" value="" [selected]="true">Choose User</option>
+      <option style="background-color: #fe5d93" value="1" >USER1</option>
+      <option style="background-color: #fe5d93" value="4" >USER2</option>
+    </select>
+  </div>
+</form>
+</div>
+
+<div  style="margin: 5%;" class="card-wrapper row">
+  <mat-card *ngIf="isDataAvailable" class="col-sm-6">
+    <mat-card-header>
+      <mat-card-subtitle>
+        sort by comments
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div >
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  >
+          </canvas>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="isDataAvailable1" class="col-sm-6">
+    <mat-card-header>
+      <mat-card-subtitle>
+        sort by reactions
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div >
+          <canvas baseChart
+                  [datasets]="barChartData1"
+                  [labels]="barChartLabels1"
+                  [options]="barChartOptions1"
+                  [legend]="barChartLegend1"
+                  >
+          </canvas>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin-left: 300px;margin-top: 30px " *ngIf="isDataAvailable2" class="col-sm-6">
+    <mat-card-header>
+      <mat-card-subtitle>
+        sort by userPreferences
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div >
+          <canvas baseChart
+                  [datasets]="barChartData2"
+                  [labels]="barChartLabels2"
+                  [options]="barChartOptions2"
+                  [legend]="barChartLegend2"
+                  >
+          </canvas>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<div style="padding-left: 5%;padding-top: 2%;" class="container-fluid">
+  <div class="col-12 d-flex justify-content-lg-end">
+    <button class="btn-primary btn add" (click)="openAddDialog()"> Ajouter</button>
+  </div>
+</div>
+
+<div class="card-body">
+
+    <form style="margin-top: 2%;" class="form">
+        <h4 style="position: absolute;"> Search : </h4><br><br>
+        <div
+        class="input-group col-md-3"
+
+        >
+
+            <div class="input-group-prepend">
+            <div class="input-group-text">
+                <i class="tim-icons icon-email-85"> </i>
+            </div>
+            </div>
+
+            <input
+            class="form-control"
+            placeholder="Enter title "
+            type="text"
+            name="title"
+            [(ngModel)] = "title"
+            (ngModelChange)="Search()"
+            />
+        </div>
+    </form>
+</div>
+
+
+<div style="padding: 5%;" class="tab">
+  <table class="table">
+    <thead>
+    <tr>
+      <th (click)="Sort('title')" scope="col">Content&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="Sort('content')" scope="col">Title&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="Sort('createdAt')" scope="col">Date creation&nbsp;<i class="fa fa-sort"></i></th>
+      <th (click)="Sort('updatedAt')" scope="col">Date modification&nbsp;<i class="fa fa-sort"></i></th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let publication of publications | orderBy: key: reverse | paginate: {itemsPerPage:2,currentPage:p}; ">
+
+      <td>{{publication.content}}</td>
+      <td>{{publication.title}}</td>
+      <td>{{publication.createdAt| date}}</td>
+      <td>{{publication.updatedAt| date}}</td>
+      <td>
+        <button  style="margin-right: 5%;"mat-icon-button
+                class="btn-primary btn edit" (click)="openUpdateDialog(publication.idPublication)" >
+          <mat-icon >edit </mat-icon>
+        </button>
+        <button mat-icon-button class="btn-danger btn" (click)="supprimer(publication.idPublication)" >
+          <mat-icon>delete </mat-icon>
+        </button>
+
+      </td>
+    </tr>
+
+    </tbody>
+    <pagination-controls
+    (pageChange) ="p = $event"
+    >
+    </pagination-controls>
+  </table>
+</div>

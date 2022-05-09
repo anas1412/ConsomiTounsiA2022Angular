@@ -6,10 +6,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { CreateReclamationComponent } from './reclamation/create-reclamation/create-reclamation.component';
-import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
-import { AdminReclamationComponent } from './reclamation/admin-reclamation/admin-reclamation.component';
-import { ListReclamationComponent } from './reclamation/list-reclamation/list-reclamation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
@@ -18,41 +14,31 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+
 import {MatSelectModule} from '@angular/material/select';
-import { ListProduitComponent } from './Produit/list-produit/list-produit.component';
-import { CreateProduitComponent } from './Produit/create-produit/create-produit.component';
-import { UpdateProduitComponent } from './Produit/update-produit/update-produit.component';
-import { ListProduitBackComponent } from './Produit/list-produit-back/list-produit-back.component';
-import { ListProduitFrontComponent } from './Produit/list-produit-front/list-produit-front.component';
-
-// @ts-ignore
+import { CreatePublicationComponent } from './publication/create-publication/create-publication.component';
+import { ListPublicationComponent } from './publication/list-publication/list-publication.component';
+import { UpdatePublicationComponent } from './publication/update-publication/update-publication.component';
+import { ListCommentsComponent } from './publication/list-comments/list-comments.component';
+import { ListPublicationAdminComponent } from './publication/list-publication-admin/list-publication-admin.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ListStockComponent } from './stock/list-stock/list-stock.component';
-import { CreateStockComponent } from './stock/create-stock/create-stock.component';
-import { ListStockBackComponent } from './stock/list-stock-back/list-stock-back.component';
-import { UpdateStockComponent } from './stock/update-stock/update-stock.component';
-
-
-
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgChartsModule } from 'ng2-charts';
+import {MatCardModule} from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    CreateReclamationComponent,
-    UpdateReclamationComponent,
-    AdminReclamationComponent,
-    ListReclamationComponent,
-    ListProduitComponent,
-    CreateProduitComponent,
-    UpdateProduitComponent,
-    ListProduitBackComponent,
-    ListProduitFrontComponent,
-    ListStockComponent,
-    CreateStockComponent,
-    ListStockBackComponent,
-    UpdateStockComponent,
+    CreatePublicationComponent,
+    ListPublicationComponent,
+    UpdatePublicationComponent,
+    ListCommentsComponent,
+    ListPublicationAdminComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -66,7 +52,12 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
     FormsModule,
     HttpClientModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule,
+    MatCardModule,
+    NgChartsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

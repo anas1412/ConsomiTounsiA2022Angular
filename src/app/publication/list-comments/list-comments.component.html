@@ -1,0 +1,21 @@
+<div style= "height: 700px; white-space: nowrap; overflow-y: scroll; "  class="container justify-content-center mt-5 border-left border-right">
+    <div *ngFor="let commentaire of commentaires" class="d-flex justify-content-center py-2">
+        <div class="second py-2 px-2"> <span class="text1">{{commentaire.content}}</span>
+            <div  class="d-flex justify-content-between py-1 pt-2">
+                <div><img src="https://i.imgur.com/AgAC1Is.jpg" width="18"><span class="text2">{{commentaire.user.username}}</span></div><br>
+                <div><span class="text3" style="margin-left:450px ;">{{commentaire.postedAt| date}}</span></div><br>
+                <div><form class="form" [formGroup]="form"><input formControlName="content" (keydown.enter)="update(commentaire.user.id,commentaire)" [hidden]="edit" /></form></div>
+                <div>
+                    <a (click)="supprimer(commentaire.idCommentaire,commentaire.user.id)">
+                        <mat-icon style="color:red;" aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                    </a>
+                </div>&nbsp;&nbsp;
+                <div>
+                    <a > 
+                        <mat-icon (click)="edit= !edit" style="color: blue;" aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
