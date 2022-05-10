@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { UserService } from '../_services/user.service';
 export class BoardAdminComponent implements OnInit {
   content?: string;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,
+    private authService:AuthService) { }
 
   ngOnInit(): void {
     this.userService.getAdminBoard().subscribe({
@@ -20,5 +22,26 @@ export class BoardAdminComponent implements OnInit {
         this.content = JSON.parse(err.error).message;
       }
     });
+
+    this.getlistUser();
+    this.deleteUser(this.id);
   }
+  p: number = 1
+  pageOp:number=1
+id:any
+listUser: any;
+  getlistUser(){
+    this.authService.getlistUser().subscribe(data => {
+      (this.listUser = data)
+      console.log(data);
+    })
+
+   
+
+}
+deleteUser(id:any){
+  this.authService.deleteUser(id).subscribe();
+}
+
+
 }

@@ -12,6 +12,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
+  static deleteUser(id: (id: any) => void) {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<any> {
@@ -28,4 +31,16 @@ export class AuthService {
       password
     }, httpOptions);
   }
+
+  getlistUser(){
+ return   this.http.get(AUTH_API +  'ListUser')
+  
+  }
+  deleteUser(id:any){
+    return this.http.delete(AUTH_API + 'deleteUser/' + id)
+  }
+
+ 
 }
+
+

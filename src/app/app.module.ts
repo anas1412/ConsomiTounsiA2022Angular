@@ -34,6 +34,7 @@ import { UpdateStockComponent } from './stock/update-stock/update-stock.componen
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -73,7 +74,8 @@ import { BoardAdminComponent } from './board-admin/board-admin.component';
     HttpClientModule,
     MatSelectModule,
     Ng2SearchPipeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
