@@ -35,6 +35,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 
 
 
@@ -75,7 +76,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatSelectModule,
     Ng2SearchPipeModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

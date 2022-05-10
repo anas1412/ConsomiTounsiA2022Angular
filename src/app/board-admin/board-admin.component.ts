@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { AuthService } from '../_services/auth.service';
 import { UserService } from '../_services/user.service';
 
@@ -28,6 +29,8 @@ export class BoardAdminComponent implements OnInit {
   }
   p: number = 1
   pageOp:number=1
+  search:string=""
+
 id:any
 listUser: any;
   getlistUser(){
@@ -43,5 +46,8 @@ deleteUser(id:any){
   this.authService.deleteUser(id).subscribe();
 }
 
+elementType= NgxQrcodeElementTypes.URL
+        correctionLevel=NgxQrcodeErrorCorrectionLevels.HIGH
+        value=""
 
 }
