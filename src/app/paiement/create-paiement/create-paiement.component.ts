@@ -8,6 +8,7 @@ import {IFactureServices} from "../../facture/service/facture.service";
 import {ListFactureBackComponent} from "../../facture/list-facture-back/list-facture-back.component";
 import {IPanierProduitServices} from "../../panier-produit/service/panierproduit.service";
 import {CreateFactureComponent} from "../../facture/create-facture/create-facture.component";
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-create-paiement',
@@ -18,20 +19,28 @@ export class CreatePaiementComponent implements OnInit {
   paiement: Paiement = new Paiement();
   private p?: Paiement;
   price: any = this.data.p;
+  currentUser: any;
 
   constructor(
     private service: IPaiementServices,
     private dialogRef: MatDialogRef<CreatePaiementComponent>,
     private dialog: MatDialog,
+    private token: TokenStorageService,
     @Inject(MAT_DIALOG_DATA)  private data: any
   ) {}
 
   ngOnInit(): void {
+
+    this.currentUser = this.token.getUser();
+    console.log(this.currentUser);
+
+    console.log(this.currentUser.id);
+
   }
 
   add() {
 
-    this.service.save(this.paiement,1).subscribe(r =>
+    this.service.save(this.paiement,this.currentUser.id).subscribe(r =>
       //this.p = r,
       this.openShowDialog3(r)
       //this.dialogRef.close()

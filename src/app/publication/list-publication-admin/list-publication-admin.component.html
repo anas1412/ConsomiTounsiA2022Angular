@@ -3,9 +3,7 @@
   <div class="form-group">
     <label for="user">User</label>
     <select  (change)="somethingChanged()" formControlName="user" name="user" class="form-control" id="user">
-      <option style="background-color: #fe5d93" value="" [selected]="true">Choose User</option>
-      <option style="background-color: #fe5d93" value="1" >USER1</option>
-      <option style="background-color: #fe5d93" value="4" >USER2</option>
+      <option *ngFor="let user of users" [value]="user.id" style="background-color: #fe5d93" >{{user.email}}</option>
     </select>
   </div>
 </form>

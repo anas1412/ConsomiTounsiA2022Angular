@@ -30,6 +30,7 @@ export class ListPublicationAdminComponent implements OnInit {
   nbrcomm1  :any= [];
   userpost2  :any= [];
   nbrcomm2  :any= [];
+  users:any=[];
 
 
   constructor(
@@ -40,6 +41,11 @@ export class ListPublicationAdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.service.GetAllUsers().subscribe(data => {
+      // @ts-ignore
+      this.users=data;
+      console.log(this.users)
+    })
     this.sortbycomments(JSON.parse(localStorage.getItem('user')!));
     this.sortbyreactions(JSON.parse(localStorage.getItem('user')!));
     this.userPreferences(JSON.parse(localStorage.getItem('user')!));
@@ -67,7 +73,7 @@ export class ListPublicationAdminComponent implements OnInit {
         this.userpost.push(Object.keys(object)[index]);
         this.nbrcomm.push(Object.values(object)[index]);
       }
-      this.isDataAvailable = true; 
+      this.isDataAvailable = true;
     })
   }
   public barChartOptions = {
@@ -92,7 +98,7 @@ export class ListPublicationAdminComponent implements OnInit {
         this.userpost1.push(Object.keys(object)[index]);
         this.nbrcomm1.push(Object.values(object)[index]);
       }
-      this.isDataAvailable1 = true; 
+      this.isDataAvailable1 = true;
     })
   }
   public barChartOptions1 = {
@@ -116,7 +122,7 @@ export class ListPublicationAdminComponent implements OnInit {
         this.userpost2.push(Object.keys(object)[index]);
         this.nbrcomm2.push(Object.values(object)[index]);
       }
-      this.isDataAvailable2 = true; 
+      this.isDataAvailable2 = true;
     })
   }
   public barChartOptions2 = {

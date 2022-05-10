@@ -3,6 +3,7 @@ import { Injectable, TemplateRef } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Event } from "../model/event";
 import { Cagnotte } from "../../cagnotte/model/cagnotte";
+import {Produit} from "../../Produit/model/produit";
 
 @Injectable({
     providedIn: 'root'
@@ -11,10 +12,12 @@ import { Cagnotte } from "../../cagnotte/model/cagnotte";
   export class EventService {
     private api_url = environment.api_url + 'event';
     constructor(private http: HttpClient) { }
-  
-    public save(event: Event,cagnotteId:Number){
-      return this.http.post(this.api_url + '/add-getEvent/'+cagnotteId,event);
+
+    public save(event: Event,cagnotteId:Number,userId:Number){
+      return this.http.post(this.api_url + '/add-getEvent-user/'+cagnotteId+"/"+userId,event);
     }
+
+
     public findAll(){
       return this.http.get(this.api_url + '/getAllEventActive');
     }
@@ -32,7 +35,7 @@ import { Cagnotte } from "../../cagnotte/model/cagnotte";
       return this.http.delete(this.api_url + '/remove-event/' + id);
     }
 
-   
-  
-  
+
+
+
   }

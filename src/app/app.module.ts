@@ -81,6 +81,12 @@ import { ListPublicationAdminComponent } from './publication/list-publication-ad
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import { NgChartsModule } from 'ng2-charts';
 import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -140,7 +146,9 @@ import {MatCardModule} from '@angular/material/card';
     UpdatePublicationComponent,
     ListCommentsComponent,
     ListPublicationAdminComponent,
-
+    LoginComponent,
+    RegisterComponent,
+    BoardAdminComponent
   ],
   imports: [
     MatFormFieldModule,
@@ -171,6 +179,7 @@ import {MatCardModule} from '@angular/material/card';
     MatCardModule,
     NgChartsModule,
     ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent],

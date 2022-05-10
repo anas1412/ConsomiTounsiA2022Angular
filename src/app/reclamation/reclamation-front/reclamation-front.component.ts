@@ -6,6 +6,7 @@ import {Reclamation} from "../model/reclamation";
 import {CreateReclamationComponent} from "../create-reclamation/create-reclamation.component";
 import {UpdateReclamationComponent} from "../update-reclamation/update-reclamation.component";
 import {Livraison} from "../../livraison/model/livraison";
+import {TokenStorageService} from "../../_services/token-storage.service";
 
 @Component({
   selector: 'app-reclamation-front',
@@ -16,19 +17,25 @@ export class ReclamationFrontComponent implements OnInit {
   reclamation: Reclamation = new Reclamation();
   id:any;
   livraison:Livraison[];
+  currentUser: any
 
   constructor(
     private service: IReclamationService,
     private dialogRef: MatDialogRef<ReclamationFrontComponent>,
     private http: HttpClient,
     private dialog: MatDialog,
+    private token: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+    console.log(this.currentUser);
+
+    console.log(this.currentUser.id);
   }
   add() {
     // @ts-ignore
-    this.service.save(this.reclamation,  1,1).subscribe(data => this.dialogRef.close())
+    this.service.save(this.reclamation,  this.currentUser.id,1).subscribe(data => this.dialogRef.close())
   }
   openAddDialog() {
     const dialogRef = this.dialog.open(CreateReclamationComponent, {

@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "src/environments/environment";
 import { Cagnotte } from "../model/cagnotte";
+import {Produit} from "../../Produit/model/produit";
 
 @Injectable({
     providedIn: 'root'
@@ -10,9 +11,10 @@ export class CagnotteService {
     private api_url = environment.api_url + 'cagnotte';
     constructor(private http: HttpClient) { }
 
-    public save(cagnotte: Cagnotte) {
-        return this.http.post(this.api_url + '/add-getCagnotte', cagnotte);
+    public save(cagnotte: Cagnotte,userId:Number) {
+        return this.http.post(this.api_url + '/add-getCagnotte-user/'+userId, cagnotte);
     }
+
     public findAll() {
         return this.http.get(this.api_url + '/getAllCagnotte');
     }

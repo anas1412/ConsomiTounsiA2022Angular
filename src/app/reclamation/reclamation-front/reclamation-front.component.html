@@ -10,8 +10,8 @@
             <form class="form-card" #f="ngForm">
               <div class="row justify-content-between text-left">
                 <div class="form-group col-sm-60 flex-column d-flex">
-                  <label class="form-control-label px-30">Email<span class="text-danger"> *</span></label>
-                  <input type="text" name="adresse" id="adresse" class="form-control" required
+                  <label class="form-control-label px-30">Email<span class="text-danger"></span></label>
+                  <input type="text" name="adresse" id="adresse" class="form-control" required [(ngModel)]="currentUser.email"
                    >
                 </div>
 
@@ -34,3 +34,4 @@
   <div class="form-group col-auto"><button mat-flat-button (click)="add()" type="submit" class="btn-primary">Submit</button></div>
 
 </div>
+                  </div>

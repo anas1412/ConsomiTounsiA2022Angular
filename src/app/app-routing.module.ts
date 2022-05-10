@@ -32,7 +32,10 @@ import {LivraisonFrontComponent} from "./livraison/livraison-front/livraison-fro
 import {ReclamationFrontComponent} from "./reclamation/reclamation-front/reclamation-front.component";
 import { ListPublicationAdminComponent } from './publication/list-publication-admin/list-publication-admin.component';
 import {ListPublicationComponent} from "./publication/list-publication/list-publication.component";
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { BoardAdminComponent } from './board-admin/board-admin.component';
 
 const routes: Routes = [
   {
@@ -135,7 +138,20 @@ const routes: Routes = [
   },{
     path: 'publicationadmin',
     component: ListPublicationAdminComponent
-  }
+  },  {
+    path: 'login',
+    component: LoginComponent
+  },
+
+  { path: 'admin', component: BoardAdminComponent },
+
+  {
+    path: 'register',
+    component: RegisterComponent
+  }, {
+    path: 'profile',
+    component: ProfileComponent
+  } ,
 ];
 
 @NgModule({

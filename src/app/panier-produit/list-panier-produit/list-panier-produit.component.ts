@@ -8,6 +8,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ListFactureBackComponent} from "../../facture/list-facture-back/list-facture-back.component";
 import {CreatePaiementComponent} from "../../paiement/create-paiement/create-paiement.component";
 import {CreateFactureComponent} from "../../facture/create-facture/create-facture.component";
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 
 @Component({
@@ -20,18 +21,24 @@ export class ListPanierProduitComponent implements OnInit {
   value?:number;
   pan?: PanierProduit;
   private total: number = 0;
+  currentUser: any;
 
   constructor(
     private service: IPanierProduitServices,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private token: TokenStorageService
   ) { }
 
   ngOnInit(): void {
 
+    this.currentUser = this.token.getUser();
+    console.log(this.currentUser);
+
+    console.log(this.currentUser.id)
 
 
 
-    this.service.getPanier(1).subscribe(data => {
+    this.service.getPanier(this.currentUser.id).subscribe(data => {
       // @ts-ignore
       this.panierProduits = data;
       console.log(data);
@@ -87,11 +94,11 @@ export class ListPanierProduitComponent implements OnInit {
     return totalPrice;
   }
 
-  viderPanier(userId:any){
+  viderPanier(){
     if(confirm('Voulez vous vider le panier?')) {
-    let i: number=0;
+    let i: number;
     for (let i of this.panierProduits ) {
-      this.removePP(userId, i);
+      this.removePP(i.idPanierProduit);
       this.ngOnInit();
       }
     }
@@ -103,9 +110,9 @@ export class ListPanierProduitComponent implements OnInit {
     return this.total;
   }
 
-  removePP(userId: any, produitId: any){
+  removePP(produitId: any){
     if(confirm('Voulez vous vraiment supprimer ce produit?')) {
-      this.service.removeFromPanier(userId, produitId)
+      this.service.removeFromPanier(this.currentUser.id, produitId)
         .subscribe(data => {
           console.log("deleted");
           this.ngOnInit();

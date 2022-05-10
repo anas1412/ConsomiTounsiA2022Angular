@@ -14,6 +14,9 @@ export class PublicationService {
   public save(publication: Publication,id:Number){
     return this.http.post(this.api_url + '/add-publication/'+id, publication);
   }
+  public GetAllUsers(){
+    return this.http.get('http://localhost:8080/SpringMVC/api/auth/ListUser');
+  }
   public findAll(){
     return this.http.get(this.api_url + '/retrieve-all-publications');
   }

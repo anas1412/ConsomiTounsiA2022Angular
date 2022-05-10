@@ -2,7 +2,6 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">idFacture</th>
       <th scope="col">Date</th>
       <th scope="col">Type</th>
       <th scope="col">Etat Livraison</th>
@@ -11,7 +10,6 @@
 
     <tbody>
     <tr *ngFor = "let f of factures">
-      <td>{{f.idFacture}}</td>
       <td>{{f.date | date :'short'}}</td>
       <td>{{f.type}}</td>
       <td> {{f.etat_livraison}}</td>

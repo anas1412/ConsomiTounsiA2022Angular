@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import {TokenStorageService} from "../../_services/token-storage.service";
 @Component({
   selector: 'app-list-publication',
   templateUrl: './list-publication.component.html',
@@ -23,18 +24,20 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ListPublicationComponent implements OnInit {
 
-  
+
   publications: Publication[] = [];
   commentaire: Commentaire = new Commentaire();
   reaction: Reaction = new Reaction();
   form!: FormGroup;
+  currentUser: any;
   constructor(
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
     private service: PublicationService,
     private commService:CommentaireService,
     private reactionService:ReactionService,
-    private router:Router
+    private router:Router,
+    private token: TokenStorageService,
   ) { }
 
   ngOnInit(): void {
@@ -46,6 +49,10 @@ export class ListPublicationComponent implements OnInit {
       this.publications = data;
       console.log(data)
     })
+    this.currentUser = this.token.getUser();
+    console.log(this.currentUser);
+
+    console.log(this.currentUser.id);
   }
 
   findByPub(id:any):any{
@@ -60,11 +67,11 @@ export class ListPublicationComponent implements OnInit {
   getCount(name:string,list:any) {
     return list.filter((o:any) => o.type === name).length;
   }
-  
+
   addComment(id:any){
     this.commentaire.content=this.form.get(['content'])!.value;
     this.commentaire.postedAt=new Date();
-    this.commService.save(this.commentaire,id,1)
+    this.commService.save(this.commentaire,id,this.currentUser.id)
     .pipe(map((data)=>data))
     .toPromise()
     .then((response)=>{
@@ -82,10 +89,10 @@ export class ListPublicationComponent implements OnInit {
     this.reaction.type = type;
 
     if(reaction.length>0){
-      
+
       for (var key in reaction) {
         console.log(reaction[key].user.id)
-        if (reaction[key].user.id==1) {
+        if (reaction[key].user.id==this.currentUser.id) {
           this.reactionService.delete(reaction[key].idReaction).subscribe();
           this.router.navigate(['/publication']).then(()=>{
             location.reload() ;
@@ -93,14 +100,14 @@ export class ListPublicationComponent implements OnInit {
           return;
         }
         else {
-          this.reactionService.save(this.reaction,id,1).subscribe();
+          this.reactionService.save(this.reaction,id,this.currentUser.id).subscribe();
           this.router.navigate(['/publication']).then(()=>{
             location.reload() ;
           });
         }
       }
     }else {
-      this.reactionService.save(this.reaction,id,1).subscribe();
+      this.reactionService.save(this.reaction,id,this.currentUser.id).subscribe();
       this.router.navigate(['/publication']).then(()=>{
         location.reload() ;
       });
