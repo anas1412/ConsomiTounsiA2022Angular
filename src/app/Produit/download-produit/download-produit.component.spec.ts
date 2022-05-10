@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DownloadProduitComponent } from './download-produit.component';
 
 describe('DownloadProduitComponent', () => {
@@ -9,12 +8,14 @@ describe('DownloadProduitComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ DownloadProduitComponent ]
+
     })
     .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DownloadProduitComponent);
+
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

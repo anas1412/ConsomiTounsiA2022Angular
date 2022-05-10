@@ -21,7 +21,7 @@
           <div class="col-md-6 mt-1" (click)="Onpopup(produit)">
 
           </div>
-          <div class="align-items-center align-content-center col-md-3 border-left mt-1" (click)="Onpopup(produit)">
+          <div class="align-items-center align-content-center col-md-3 border-left mt-1" >
             <h5>{{produit.libelleProduit}}</h5>
             <div class="d-flex flex-row">
               <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div><span>310</span>
@@ -32,7 +32,7 @@
               <h4 class="mr-1">{{produit.prix}}TND</h4><span class="strike-text">15.0TND</span>
             </div>
             <h6 class="text-success">Free shipping</h6>
-            <button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to cart</button></div>
+            <button class="btn btn-outline-primary btn-sm mt-2" type="button" (click)="openShowDialog3(produit)">Add to cart</button></div>
           </div>
         </div>
       </div>

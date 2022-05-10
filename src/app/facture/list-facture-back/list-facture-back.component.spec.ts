@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateStockComponent } from './update-stock.component';
+import { ListFactureBackComponent } from './list-facture-back.component';
 
-describe('UpdateStockComponent', () => {
-  let component: UpdateStockComponent;
-  let fixture: ComponentFixture<UpdateStockComponent>;
+describe('ListFactureBackComponent', () => {
+  let component: ListFactureBackComponent;
+  let fixture: ComponentFixture<ListFactureBackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UpdateStockComponent ]
+      declarations: [ ListFactureBackComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UpdateStockComponent);
+    fixture = TestBed.createComponent(ListFactureBackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

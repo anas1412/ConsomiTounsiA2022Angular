@@ -31,6 +31,12 @@ import { ProduitListStockComponent } from './stock/produit-list-stock/produit-li
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {NgxPaginationModule} from 'ngx-pagination';
 import {DownloadProduitComponent} from "./Produit/download-produit/download-produit.component";
+import { ListPanierProduitComponent } from './panier-produit/list-panier-produit/list-panier-produit.component';
+import { CreatePanierProduitComponent } from './panier-produit/create-panier-produit/create-panier-produit.component';
+import { CreatePaiementComponent } from './paiement/create-paiement/create-paiement.component';
+import { CreateFactureComponent } from './facture/create-facture/create-facture.component';
+import { ListFactureBackComponent } from './facture/list-facture-back/list-facture-back.component';
+import { DetailFactureComponent } from './facture/detail-facture/detail-facture.component';
 
 
 @NgModule({
@@ -51,7 +57,13 @@ import {DownloadProduitComponent} from "./Produit/download-produit/download-prod
     ProduitDetailsComponent,
     SafePipe,
     ProduitListStockComponent,
-    DownloadProduitComponent
+    DownloadProduitComponent,
+    ListPanierProduitComponent,
+    CreatePanierProduitComponent,
+    CreatePaiementComponent,
+    CreateFactureComponent,
+    ListFactureBackComponent,
+    DetailFactureComponent
   ],
   imports: [
     BrowserModule,

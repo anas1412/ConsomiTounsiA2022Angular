@@ -1,10 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {Produit} from "../model/produit";
-import {MatDialog} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {IProduitServices} from "../services/produit.service";
 import {ProduitDetailsComponent} from "../produit-details/produit-details.component";
 import {UpdateProduitComponent} from "../update-produit/update-produit.component";
 import {IStockService} from "../../stock/services/stock.service";
+import {iPanierProduit} from "../../panier-produit/model/panierproduit";
+import {PanierProduit} from "../../panier-produit/model/panierproduit";
+import {CreatePanierProduitComponent} from "../../panier-produit/create-panier-produit/create-panier-produit.component";
+import {ListFactureBackComponent} from "../../facture/list-facture-back/list-facture-back.component";
+import {CreateFactureComponent} from "../../facture/create-facture/create-facture.component";
 
 @Component({
   selector: 'app-list-produit-front',
@@ -25,7 +30,8 @@ export class ListProduitFrontComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     private service: IProduitServices,
-    private servicestock: IStockService
+    private servicestock: IStockService,
+
 
   ) {
   }
@@ -33,13 +39,13 @@ export class ListProduitFrontComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.service.findAll().subscribe(data => {
+    this.service.findAll().subscribe(r => {
       // @ts-ignore
-      this.produits = data;
+      this.produits = r;
 
     })
 
-    this.servicestock.findAll().subscribe((data)=>{this.stocks = data})
+    this.servicestock.findAll().subscribe((r)=>{this.stocks = r})
 
   }
 
@@ -49,5 +55,19 @@ export class ListProduitFrontComponent implements OnInit {
     this.popup = true;
   }
 
+  openShowDialog3(r: any) {
+    const dialogRef = this.dialog.open(CreatePanierProduitComponent, {
+      width: '400px',
+      data: {
+        id: r.idProduit
+      }
+
+    });
+  }
+
+
+
+
 
 }
+
