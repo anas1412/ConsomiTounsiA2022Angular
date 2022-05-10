@@ -73,7 +73,14 @@ import { Ng2GoogleChartsModule } from 'ng2-google-charts';
 // @ts-ignore
 //import {AgmCoreModule} from "@agm/core";
 import { ReclamationFrontComponent } from './reclamation/reclamation-front/reclamation-front.component';
-
+import { CreatePublicationComponent } from './publication/create-publication/create-publication.component';
+import { ListPublicationComponent } from './publication/list-publication/list-publication.component';
+import { UpdatePublicationComponent } from './publication/update-publication/update-publication.component';
+import { ListCommentsComponent } from './publication/list-comments/list-comments.component';
+import { ListPublicationAdminComponent } from './publication/list-publication-admin/list-publication-admin.component';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgChartsModule } from 'ng2-charts';
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
@@ -128,6 +135,11 @@ import { ReclamationFrontComponent } from './reclamation/reclamation-front/recla
     LivraisonDelaiComponent,
     LivraisonFrontComponent,
     ReclamationFrontComponent,
+    CreatePublicationComponent,
+    ListPublicationComponent,
+    UpdatePublicationComponent,
+    ListCommentsComponent,
+    ListPublicationAdminComponent,
 
   ],
   imports: [
@@ -154,7 +166,11 @@ import { ReclamationFrontComponent } from './reclamation/reclamation-front/recla
     //AgmCoreModule.forRoot({
     //  apiKey: 'AIzaSyAGYgVjHtRbXAjZYWma3JQCvebjynCraoQ'}
     //)
-
+    Ng2OrderModule,
+    NgxPaginationModule,
+    MatCardModule,
+    NgChartsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

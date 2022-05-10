@@ -1,0 +1,170 @@
+<div  class=" container-fluid" >
+  <div class="col-12 d-flex justify-content-lg-end">
+    <button class="btn-primary btn" (click)="openAddDialog()" id="bb">  Ajouter une publication </button>
+  </div>
+</div>
+<section class="intro-single">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8">
+        <div class="title-single-box">
+          <h1 class="title-single">Nos incroy</h1>
+          <span class="color-text-a">les publications</span>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-4">
+        <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Properties Grid
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="property-grid grid">
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-4" *ngFor="let publication of publications">
+        <div class="card-box-a card-shadow">
+          <div class="img-box-a">
+            <img src="/assets/img/property-10.jpg" alt="" class="img-a img-fluid">
+          </div>
+          <div class="card-overlay">
+            <div class="card-overlay-a-content">
+              <div class="card-header-a">
+                <h2 class="card-title-a">
+                  <!--    <a href="#" (click)="participer()">{{event.labelle}}
+                        <br /></a> -->
+                </h2>
+              </div>
+              <div class="card-body-a">
+                <div class="price-box d-flex">
+                  <span class="price-a" >{{publication.content}}</span>
+                </div>
+                <div class="card-body-a">
+                  <div class="price-box d-flex">
+                    <span class="price-a" >{{publication.title}}</span>
+                  </div>
+
+
+                  <a>
+                    <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="supprimer(publication.idPublication)" id="delete" >
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </a>
+
+                  <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openUpdateDialog(publication.idPublication)" id="update" >
+                    <mat-icon>edit </mat-icon>
+
+                  </button>
+
+
+
+                </div>
+                <div class="card-footer-a">
+                  <ul class="card-info d-flex justify-content-around">
+                    <li>
+                      <h4 class="card-info-title">Date Début</h4>
+                      <span>{{publication.createdAt| date}}
+
+                        </span>
+                    </li>
+
+                    <li>
+                      <h4 class="card-info-title">Date Fin</h4>
+                      <span>{{publication.updatedAt| date}}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="container justify-content-center mt-5 border-left border-right">
+          <div class="d-flex justify-content-center pt-3 pb-2"> <form class="form" [formGroup]="form"><input required matInput formControlName="content" type="text"  placeholder="+ Add a comment" class="form-control addtxt"> </form>
+            <a>
+              <button mat-mini-fab color="primary" aria-label="Example icon button with a delete icon" (click)="addComment(publication.idPublication)" id="add" >
+                <mat-icon>add</mat-icon>
+              </button>
+            </a>
+
+
+            </div>
+          <div  class="d-flex justify-content-center py-2">
+              <div   class="second py-2 px-2"> <span style="color: white;" class="text1">Type your note, and hit enter to add it</span>
+                  <div  class="d-flex justify-content-between py-1 pt-2">
+                    <a (click)="findByPub(publication.idPublication)"><div><span  class="text3">Show Comments</span></div></a>
+                      <div >
+                        <span><a (click)="addReaction(publication.idPublication,'Love',publication.reaction)"><i style="font-size:25px;color:red;" class="fa fa-heart"></i></a></span><span >{{getCount('Love',publication.reaction) }}</span>
+                        <span><a (click)="addReaction(publication.idPublication,'Dislike',publication.reaction)"><i style="font-size:25px;color:blue;" class="fa fa-thumbs-down fa-2xl"></i></a></span><span >{{getCount('Dislike',publication.reaction)}}</span>
+                        <span><a (click)="addReaction(publication.idPublication,'Funny',publication.reaction)"><i style="font-size:25px;color:darkorange;" class="fa fa-smile-o fa-2xl" ></i></a></span><span >{{getCount('Funny',publication.reaction)}}</span>
+                        <span><a (click)="addReaction(publication.idPublication,'Sad',publication.reaction)"><i style="font-size:25px;color:darkorange;" class="fa fa-frown-o fa-2xl"></i></a></span><span >{{getCount('Sad',publication.reaction)}}</span>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!--
+<div class="container-fluid">
+  <div class="col-12 d-flex justify-content-lg-end">
+    <button class="btn-primary btn add" (click)="openAddDialog()"> Ajouter</button>
+  </div>
+</div>
+<div class="tab">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Content</th>
+      <th scope="col">Title</th>
+      <th scope="col">Date creation </th>
+      <th scope="col">Date modification</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let publication of publications">
+
+      <td>{{publication.content}}</td>
+      <td>{{publication.title}}</td>
+      <td>{{publication.createdAt| date}}</td>
+      <td>{{publication.updatedAt| date}}</td>
+      <td>
+        <button mat-icon-button
+                class="btn-primary btn edit" (click)="openUpdateDialog(publication.idPublication)" >
+          <mat-icon>edit </mat-icon>
+        </button>
+        <button mat-icon-button class="btn-danger btn" (click)="supprimer(publication.idPublication)" >
+          <mat-icon>delete </mat-icon>
+        </button>
+
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div> -->
+
+
+

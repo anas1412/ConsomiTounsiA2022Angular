@@ -30,14 +30,15 @@ import {FormLivraisonComponent} from "./livraison/form-livraison/form-livraison.
 import {LivraisonDelaiComponent} from "./livraison/livraison-delai/livraison-delai.component";
 import {LivraisonFrontComponent} from "./livraison/livraison-front/livraison-front.component";
 import {ReclamationFrontComponent} from "./reclamation/reclamation-front/reclamation-front.component";
-
-
+import { ListPublicationAdminComponent } from './publication/list-publication-admin/list-publication-admin.component';
+import {ListPublicationComponent} from "./publication/list-publication/list-publication.component";
 
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+
   },{
     path: 'eventfront',
     component: ListEventFrontComponent
@@ -128,7 +129,13 @@ const routes: Routes = [
   },{
     path: 'front-reclamation',
     component: ReclamationFrontComponent
-  },
+  },{
+    path: 'publication',
+    component: ListPublicationComponent
+  },{
+    path: 'publicationadmin',
+    component: ListPublicationAdminComponent
+  }
 ];
 
 @NgModule({
