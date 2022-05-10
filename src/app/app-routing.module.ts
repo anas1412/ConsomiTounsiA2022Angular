@@ -30,18 +30,13 @@ const routes: Routes = [
   },{
     path: 'eventfront',
     component: ListEventFrontComponent
-  }
-  ,{
+  },{
     path: 'eventDownload',
     component: DownloadPDFComponent
-  }
-  ,{
+  },{
     path: 'event',
     component: ListEventComponent
-  }
-
-
-  ,{
+  },{
     path: 'cagnotte',
     component: CagnotteListBackComponent
   },{
@@ -50,6 +45,12 @@ const routes: Routes = [
   },{
     path: 'eventdetail',
     component: EventDetailsComponent
+  },{
+    path: 'produit',
+    component: ListProduitComponent
+  },{
+    path: 'produitAll',
+    component: ListProduitFrontComponent
   },{
     path: 'produitback',
     component: ListProduitBackComponent

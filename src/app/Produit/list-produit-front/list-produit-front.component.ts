@@ -69,5 +69,7 @@ export class ListProduitFrontComponent implements OnInit {
 
 
 
+
+
 }
 

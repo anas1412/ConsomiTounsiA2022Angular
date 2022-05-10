@@ -61,7 +61,6 @@ import { AddSommeComponent } from './cagnotte/add-somme/add-somme.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-
     ListProduitComponent,
     CreateProduitComponent,
     UpdateProduitComponent,

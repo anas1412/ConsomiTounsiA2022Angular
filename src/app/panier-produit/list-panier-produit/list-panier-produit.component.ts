@@ -45,7 +45,7 @@ export class ListPanierProduitComponent implements OnInit {
   updateQ(pp:any) {
     this.service.updateQuantity(pp)
       .subscribe(r => {
-        //console.log(data);
+        console.log(r);
         //this.ngOnInit();
 
       }, error => console.log(error));
@@ -80,7 +80,7 @@ export class ListPanierProduitComponent implements OnInit {
 
     for (let pan of this.panierProduits){
       // @ts-ignore
-      totalPrice+=pan.quantity + pan.produit?.prix;
+      totalPrice+=pan.quantity * pan.produit?.prix;
       // @ts-ignore
       totalQuantity+=pan.quantity;
     }
@@ -111,6 +111,14 @@ export class ListPanierProduitComponent implements OnInit {
           this.ngOnInit();
         }, error => console.log(error));
     }
+  }
+
+  inc(pp: any)  {
+    pp.quantity++;
+  }
+
+  dec(pp: any)  {
+    pp.quantity--;
   }
 
 

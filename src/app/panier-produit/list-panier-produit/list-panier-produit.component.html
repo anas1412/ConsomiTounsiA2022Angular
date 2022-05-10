@@ -53,18 +53,18 @@
     <!-- Quantity -->
     <div class="d-flex mb-4" style="max-width: 300px">
       <button class="btn btn-primary px-3 me-2 "
-        (click)="updateQ(pp)"
+        (click)="dec(pp)"
         onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
   <i class="fa fa-minus"></i>
 </button>
 
 <div class="form-outline">
-  <input id="form1" min="1" name="quantity"  type="number" class="form-control" #qte [(ngModel)]="pp.quantity" />
+  <input id="form1" min="1" name="quantity"  type="number" class="form-control" #qte [(ngModel)]="pp.quantity" (change)="updateQ(pp)"/>
   <!-- <label class="form-label" for="form1">Quantity</label>-->
        </div>
 
        <button class="btn btn-primary px-3 ms-2"
-       (click)="updateQ(pp)"
+       (click)="inc(pp)"
       onclick="this.parentNode.querySelector('input[type=number]').stepUp()" >
 <i class="fa fa-plus" ></i>
 </button>
