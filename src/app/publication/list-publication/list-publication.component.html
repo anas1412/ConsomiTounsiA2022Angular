@@ -36,7 +36,7 @@
   <div class="container">
     <div class="row">
 
-      <div class="col-md-4" *ngFor="let publication of publications">
+      <div class="col-md-6" *ngFor="let publication of publications">
         <div class="card-box-a card-shadow">
           <div class="img-box-a">
             <img src="/assets/img/property-10.jpg" alt="" class="img-a img-fluid">
@@ -99,8 +99,8 @@
                 <mat-icon>add</mat-icon>
               </button>
             </a>
-
-
+            
+            
             </div>
           <div  class="d-flex justify-content-center py-2">
               <div   class="second py-2 px-2"> <span style="color: white;" class="text1">Type your note, and hit enter to add it</span>
@@ -111,7 +111,7 @@
                         <span><a (click)="addReaction(publication.idPublication,'Dislike',publication.reaction)"><i style="font-size:25px;color:blue;" class="fa fa-thumbs-down fa-2xl"></i></a></span><span >{{getCount('Dislike',publication.reaction)}}</span>
                         <span><a (click)="addReaction(publication.idPublication,'Funny',publication.reaction)"><i style="font-size:25px;color:darkorange;" class="fa fa-smile-o fa-2xl" ></i></a></span><span >{{getCount('Funny',publication.reaction)}}</span>
                         <span><a (click)="addReaction(publication.idPublication,'Sad',publication.reaction)"><i style="font-size:25px;color:darkorange;" class="fa fa-frown-o fa-2xl"></i></a></span><span >{{getCount('Sad',publication.reaction)}}</span>
-
+                        
                       </div>
                   </div>
               </div>

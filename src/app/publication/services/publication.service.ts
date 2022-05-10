@@ -17,6 +17,12 @@ export class PublicationService {
   public findAll(){
     return this.http.get(this.api_url + '/retrieve-all-publications');
   }
+
+
+  public GetAllUsers(){
+    return this.http.get('http://localhost:8080/SpringMVC/api/auth/ListUser');
+  }
+
   public update(publication: Publication){
     return this.http.put(this.api_url + '/update-publication', publication);
   }

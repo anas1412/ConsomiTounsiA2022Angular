@@ -79,17 +79,18 @@ export class ListPublicationComponent implements OnInit {
 
   addReaction(id:any,type:any,reaction:any){
 
+
     this.reaction.type = type;
 
     if(reaction.length>0){
       
       for (var key in reaction) {
-        console.log(reaction[key].user.id)
         if (reaction[key].user.id==1) {
           this.reactionService.delete(reaction[key].idReaction).subscribe();
           this.router.navigate(['/publication']).then(()=>{
             location.reload() ;
           });
+          
           return;
         }
         else {
@@ -97,6 +98,7 @@ export class ListPublicationComponent implements OnInit {
           this.router.navigate(['/publication']).then(()=>{
             location.reload() ;
           });
+          return;
         }
       }
     }else {
@@ -104,6 +106,7 @@ export class ListPublicationComponent implements OnInit {
       this.router.navigate(['/publication']).then(()=>{
         location.reload() ;
       });
+      return;
     }
   }
 

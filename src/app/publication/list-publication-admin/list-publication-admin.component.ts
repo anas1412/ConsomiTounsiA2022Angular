@@ -30,6 +30,7 @@ export class ListPublicationAdminComponent implements OnInit {
   nbrcomm1  :any= [];
   userpost2  :any= [];
   nbrcomm2  :any= [];
+  users:any=[];
 
 
   constructor(
@@ -40,6 +41,13 @@ export class ListPublicationAdminComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
+    this.service.GetAllUsers().subscribe(data => {
+      // @ts-ignore
+      this.users=data;
+      console.log(this.users)
+    })
+
     this.sortbycomments(JSON.parse(localStorage.getItem('user')!));
     this.sortbyreactions(JSON.parse(localStorage.getItem('user')!));
     this.userPreferences(JSON.parse(localStorage.getItem('user')!));

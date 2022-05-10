@@ -3,16 +3,15 @@
   <div class="form-group">
     <label for="user">User</label>
     <select  (change)="somethingChanged()" formControlName="user" name="user" class="form-control" id="user">
-      <option style="background-color: #fe5d93" value="" [selected]="true">Choose User</option>
-      <option style="background-color: #fe5d93" value="1" >USER1</option>
-      <option style="background-color: #fe5d93" value="4" >USER2</option>
+      <option *ngFor="let user of users" [value]="user.id" style="background-color: #fe5d93" >{{user.email}}</option>
+
     </select>
   </div>
 </form>
 </div>
 
 <div  style="margin: 5%;" class="card-wrapper row">
-  <mat-card *ngIf="isDataAvailable" class="col-sm-6">
+  <mat-card *ngIf="isDataAvailable" class="col-sm-4">
     <mat-card-header>
       <mat-card-subtitle>
         sort by comments
@@ -33,7 +32,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card *ngIf="isDataAvailable1" class="col-sm-6">
+  <mat-card *ngIf="isDataAvailable1" class="col-sm-4">
     <mat-card-header>
       <mat-card-subtitle>
         sort by reactions
@@ -54,7 +53,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card style="margin-left: 300px;margin-top: 30px " *ngIf="isDataAvailable2" class="col-sm-6">
+  <mat-card *ngIf="isDataAvailable2" class="col-sm-4">
     <mat-card-header>
       <mat-card-subtitle>
         sort by userPreferences
@@ -84,26 +83,26 @@
 </div>
 
 <div class="card-body">
-
+                
     <form style="margin-top: 2%;" class="form">
         <h4 style="position: absolute;"> Search : </h4><br><br>
-        <div
+        <div 
         class="input-group col-md-3"
-
+        
         >
-
+        
             <div class="input-group-prepend">
             <div class="input-group-text">
                 <i class="tim-icons icon-email-85"> </i>
             </div>
             </div>
-
+            
             <input
             class="form-control"
             placeholder="Enter title "
             type="text"
             name="title"
-            [(ngModel)] = "title"
+            [(ngModel)] = "title" 
             (ngModelChange)="Search()"
             />
         </div>
@@ -142,9 +141,9 @@
     </tr>
 
     </tbody>
-    <pagination-controls
+    <pagination-controls  
     (pageChange) ="p = $event"
     >
     </pagination-controls>
   </table>
-</div>
+</div> 
