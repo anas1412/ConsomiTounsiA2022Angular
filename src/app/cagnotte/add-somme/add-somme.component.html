@@ -1,0 +1,64 @@
+
+<h1 mat-dialog-title>donnation</h1>
+<div mat-dialog-content>
+    <!-- <mat-form-field appearance="outline" id="titre">
+    <mat-label>Titre</mat-label>
+    <input required matInput placeholder="Ajouter un titre" disabled="true" [(ngModel)]="cagnotte.labelle">
+  </mat-form-field> -->
+  <!--
+  <mat-form-field appearance="outline">
+    <mat-label>Somme Totale</mat-label>
+    <input required matInput placeholder="Ajouter une somme" [(ngModel)]="cagnotte.totalsomme">
+  </mat-form-field> -->
+  <mat-form-field appearance="fill" floatLabel="always" id="somme">
+    <mat-label>Give Donation</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="donation" [(ngModel)]="cagnotte.totalsomme">
+    <span matPrefix>DT&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field>
+  
+
+  
+
+  <!--<mat-form-field appearance="outline">
+    <mat-label>Etat</mat-label>
+    <textarea required matInput  placeholder="Ajouter une description" [(ngModel)]="cagnotte.etat"></textarea>
+  </mat-form-field>
+ <br>
+-->
+      
+
+  
+
+
+
+
+ <!-- <mat-form-field appearance="fill" >
+    <mat-label>Affecter une cagnotte</mat-label>
+    <mat-select [(value)]="event.cagnotte">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Cagnotte Ramadan</mat-option>
+      <mat-option value="option2">Cagnotte Aid</mat-option>
+      <mat-option value="option3">Cagnotte rentrée scolaire</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+
+  
+
+
+
+ <!-- <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Prix</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix>DT&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field> -->
+
+
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close >No Thanks</button>
+  <button mat-flat-button (click)="updateC()">Ok</button>
+
+</div>

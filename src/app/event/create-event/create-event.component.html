@@ -1,0 +1,91 @@
+
+    <script>
+     function launch_toast() {
+    var x = document.getElementById("toast")
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 5000);
+}
+    </script>
+
+
+<h1 mat-dialog-title>Add an Event</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline" id="titre">
+    <mat-label>Title</mat-label>
+    <input required matInput placeholder="Add a title" [(ngModel)]="event.labelle">
+  </mat-form-field>
+  <mat-form-field appearance="outline" id="desc">
+    <mat-label>Description</mat-label>
+    <input required matInput placeholder="Add description" [(ngModel)]="event.description">
+  </mat-form-field>
+  
+
+  
+
+  <mat-form-field appearance="outline" id="lieu">
+    <mat-label>Place</mat-label>
+    <textarea required matInput  placeholder="Add place" [(ngModel)]="event.lieu"></textarea>
+  </mat-form-field>
+ <br>
+  <label for="start">Start date :  </label>
+
+<input type="date" id="start" name="trip-start"
+       value="2022-05-10"
+       min="2022-05-11" max="2022-12-31" placeholder="Start date"  [(ngModel)]="event.dateDebut">
+
+       <br>
+       <label for="start">End date : </label>
+       <input type="date" id="start" name="trip-start"
+       value="2022-06-22"
+       min="2022-05-11" max="2022-12-31"  [(ngModel)]="event.dateFin">
+       <br>
+       <br>
+
+      
+
+       
+
+      
+  
+
+
+
+
+      <mat-form-field appearance="fill" id="list">
+        <mat-label>Choose a kitty</mat-label>
+        <mat-select [(ngModel)]="idCagnotte">
+          <div *ngFor="let cagnotte of cagnottes">
+          <mat-option value="{{cagnotte.idCagnotte}}" >{{cagnotte.labelle}}</mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <br>
+
+ <!-- <input type="file" class="file-input"
+        #fileUpload> -->
+     
+
+
+ <!-- <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Prix</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix>DT&nbsp;</span>
+    <span matSuffix>.00</span>
+  </mat-form-field> -->
+
+
+
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close >No Thanks</button>
+  <button mat-flat-button (click)="add()" onclick="launch_toast()">Ok</button>
+
+</div>
+<div id="toast"><div id="img">Icon</div><div id="desc">A notification message..</div></div>
+
+
+
+
+
+

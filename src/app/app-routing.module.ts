@@ -13,17 +13,43 @@ import {ListFactureBackComponent} from "./facture/list-facture-back/list-facture
 import {DetailPaiementComponent} from "./paiement/detail-paiement/detail-paiement.component";
 import {ListPanierProduitComponent} from "./panier-produit/list-panier-produit/list-panier-produit.component";
 
+import { ListEventComponent } from './event/list-event/list-event.component';
+import { CagnotteListBackComponent } from './cagnotte/cagnotte-list-back/cagnotte-list-back.component';
+import { DownloadPDFComponent } from './event/download-pdf/download-pdf.component';
+import { ListAllEventsComponent } from './event/list-all-events/list-all-events.component';
+import { ListEventFrontComponent } from './event/list-event-front/list-event-front.component';
+import { EventDetailsComponent } from './event/event-details/event-details.component';
+import { ListFrontCagnotteComponent } from './cagnotte/list-front-cagnotte/list-front-cagnotte.component';
+
+
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent
   },{
-    path: 'produit',
-    component: ListProduitComponent
+    path: 'eventfront',
+    component: ListEventFrontComponent
+  }
+  ,{
+    path: 'eventDownload',
+    component: DownloadPDFComponent
+  }
+  ,{
+    path: 'event',
+    component: ListEventComponent
+  }
+
+
+  ,{
+    path: 'cagnotte',
+    component: CagnotteListBackComponent
   },{
-    path: 'produitAll',
-    component: ListProduitFrontComponent
+    path: 'allevent',
+    component: ListAllEventsComponent
+  },{
+    path: 'eventdetail',
+    component: EventDetailsComponent
   },{
     path: 'produitback',
     component: ListProduitBackComponent
@@ -54,7 +80,10 @@ const routes: Routes = [
   },{
     path: 'listfactureback',
     component: ListFactureBackComponent
-}
+  },{
+    path: 'cagnottefront',
+    component: ListFrontCagnotteComponent
+  }
 ];
 
 @NgModule({

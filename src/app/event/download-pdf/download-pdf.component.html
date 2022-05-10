@@ -1,0 +1,93 @@
+<br>
+<br>
+<div class=" container-fluid">
+    <div class="col-12 d-flex justify-content-lg-end">
+        <button class="btn-primary btn" (click)="captureScreen()" id="bb"> Download PDF </button>
+    </div>
+</div>
+
+
+<section class="intro-single" id="aa">
+    <div class="container" id="contentToConvert">
+        <div class="row">
+            <div class="col-md-12 col-lg-8">
+                <div class="title-single-box">
+                    <h1 class="title-single">Our events</h1>
+                    <span class="color-text-a">All the events</span>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-4">
+                <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">
+                            Properties Grid
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            
+
+            <div>
+                <br>
+                <br>
+                <table class="table table-striped" >
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th>Place</th>
+                            
+
+                        </tr>
+                    </thead>
+                   
+                    <tbody *ngFor="let event of eventD">
+                        
+                        <tr>
+                            <td>{{event.labelle}}</td>
+                            <td>{{event.description}}</td>
+                            <td>{{event.dateDebut| date}}</td>
+                            <td>{{event.dateFin| date}}</td>
+                            <td>{{event.lieu}}</td>
+                           
+                        </tr>
+                   
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="property-grid grid">
+
+
+
+
+    <br>
+    <br>
+
+    <div class="container">
+        <div class="row">
+            <!--<div class="col-sm-12">
+          <div class="grid-option">
+            <form>
+              <select class="custom-select">
+                <option selected>All</option>
+                <option value="1">New to Old</option>
+                <option value="2">For Rent</option>
+                <option value="3">For Sale</option>
+              </select>
+            </form>
+          </div>
+        </div> -->

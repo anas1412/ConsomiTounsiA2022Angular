@@ -300,19 +300,10 @@ a:hover {
 
 /*------/ Display Table & Table Cell /------*/
 
-.tab{
-  padding: 5px 50px 75px 100px;
-}
-
-.container-fluid{
-  padding: 50px 50px 75px 100px;
-}
-
 .display-table {
   width: 100%;
   height: 100%;
   display: table;
-
 }
 
 .table-cell {
@@ -1636,20 +1627,10 @@ footer .credits {
   background-color: #000000;
   color: #ffffff;
 }
-.add{
-  background-color: #26a356;
-}
 
-.add:hover{
-  background-color: #104726;
-}
 .btn.btn-a:hover {
-  background-color: #1C7640;
+  background-color: #FE0707;
   color: #000000;
-}
-
-.edit{
-  margin-right: 10px;
 }
 
 .btn.btn-b {
