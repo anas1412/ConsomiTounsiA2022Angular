@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HiringLivreurComponent } from './hiring-livreur.component';
 
-import { ListStockBackComponent } from './list-stock-back.component';
-
-describe('ListStockBackComponent', () => {
-  let component: ListStockBackComponent;
-  let fixture: ComponentFixture<ListStockBackComponent>;
+describe('HiringLivreurComponent', () => {
+  let component: HiringLivreurComponent;
+  let fixture: ComponentFixture<HiringLivreurComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListStockBackComponent ]
+
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListStockBackComponent);
+
+    fixture = TestBed.createComponent(HiringLivreurComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

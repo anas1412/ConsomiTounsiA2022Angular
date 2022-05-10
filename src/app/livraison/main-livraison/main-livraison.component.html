@@ -1,0 +1,57 @@
+<div class="container mt-5 px-2">
+  <button class="btn btn-warning" (click)="return()">Return</button>
+  <div class="mb-2">
+  </div>
+  <div class="container mt-5 mb-5">
+    <div class="search-livreur" class="input-group">
+
+      <div class="form-outline">
+        <input class="form-control" type="text" [(ngModel)]="searchText"
+               autocomplete="off"  placeholder="Type to search..">
+      </div>
+      <button type="button" class="btn btn-dark">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+    <div class="container mt-5 px-2">
+    <div class="table-responsive">
+    <table class="table table-responsive table-striped table-hover table-bordered">
+      <thead>
+      <tr class="bg-light">
+        <th scope="col" >Delivery Id</th>
+        <th scope="col" >Date</th>
+        <th scope="col" >Delivery Address</th>
+        <th scope="col" >Delivery Status</th>
+        <th scope="col"  >view more</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let livraison of Livraison| filter: searchText">
+        <td>{{livraison.idLivraison}}</td>
+        <td>{{livraison.dateLiv | date:'short'}}</td>
+        <td>{{livraison.adresse}}</td>
+        <td *ngIf="!livraison.statusLiv">
+            <span>
+            <i class="bg-warning">In progress</i>
+          </span>
+        </td>
+        <td *ngIf="livraison.statusLiv==1">
+          <span>
+            <i class="bg-success">Delivred</i>
+          </span>
+        </td>
+        <td><button style="float:left; margin:5px;" class="btn btn-success" (click)="deliverLivraison(livraison.idLivraison)" >Update </button>
+          <button   style="float:right; margin:5px;" class="btn btn-danger" (click)="delete(livraison)" >Delete</button></td>
+
+      </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+  <google-chart
+    [data]="GoogleChartInterface"
+  >
+  </google-chart>
+
+</div>

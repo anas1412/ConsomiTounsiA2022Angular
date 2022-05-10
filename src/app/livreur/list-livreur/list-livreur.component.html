@@ -1,0 +1,76 @@
+<div class="container mt-5 mb-5 _mat-animation-noopableleft">
+  <div class="search-livreur" class="input-group">
+
+    <div class="form-outline">
+      <input class="form-control" type="text" [(ngModel)]="searchText"
+             autocomplete="off"  placeholder="Type to search..">
+    </div>
+    <button type="button" class="btn btn-dark">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+
+
+
+  <div class="container-fluid">
+  <div class="col-14 d-flex justify-content-lg-end">
+    <button style="float:left; margin:5px; width:180px;" class="btn btn-success" (click)="openAddDialog()" >Delivery man<mat-icon style="float:left; ">add_circle_outline</mat-icon></button>
+
+  </div>
+
+</div>
+<div class="bg-light " style="width: 1300px;margin-left:auto">
+  <table class="table  table-responsive table-striped table-hover table-bordered " >
+    <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">City</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date Added</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Account status</th>
+      <th scope="col">Image</th>
+      <th scope="col">Assign a delivery</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let livreur of livreurs | filter: searchText" (click)="Onpopup(livreur)">
+      <td>{{livreur .nom}}</td>
+      <td>{{livreur .prenom}}</td>
+      <td>{{livreur .ville}}</td>
+      <td>{{livreur .adresseEmail}}</td>
+      <td>{{livreur .dateAjout| date:'longDate'}}</td>
+      <td>{{livreur .telephone}}</td>
+      <td>{{livreur .statutCompte}}</td>
+      <td>{{livreur .imgURL}}</td>
+      <td><a style="float:inside; margin:5px;" class="btn btn-warning" [routerLink]="['/assign-livraison',livreur .idLivreur]" >Assign</a>
+      <a style=" float:inside; margin:5px; " class="btn btn-info" [routerLink]="['/recruter',livreur]"(click)="accepter(livreur)" >Accept</a>
+      </td>
+      <td>
+        <button mat-icon-button
+                class="btn-primary btn edit" (click)="openUpdateDialog(livreur .idLivreur)" >
+          <mat-icon>edit </mat-icon>
+        </button>
+        <button mat-icon-button class="btn-danger btn" (click)="delete(livreur)" >
+          <mat-icon>delete </mat-icon>
+        </button>
+
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <div class="overlay" *ngIf="popup">
+    <div class="popup">
+      <a class="close" (click)="popup = false">&times;</a>
+      <div class="content">
+        <app-livreur-details [livreur]="livreurdetail" ></app-livreur-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

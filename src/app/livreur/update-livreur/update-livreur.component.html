@@ -1,0 +1,88 @@
+<div class="container">
+  <div class=" text-center mt-1000 ">
+
+  </div>
+  <div class="row ">
+    <div class="col-lg-700 mx-auto">
+      <div class="card mt-200 mx-auto p-100 bg-light">
+        <div class="card-body bg-light">
+          <div class="container">
+            <form class="form-card" #f="ngForm">
+              <div class="row justify-content-between text-left">
+                <div class="form-group col-sm-60 flex-column d-flex">
+                  <label class="form-control-label px-30">First Name<span class="text-danger"> *</span></label>
+                  <input type="text" name="nom" id="nom" class="form-control" [(ngModel)]="livreur.nom" required
+                         minlength="3" #fn="ngModel">
+                  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')">First Name is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')">First Name minlength is equal to 3</div>
+                  </div>
+                </div>
+                <div class="form-group col-sm-60 flex-column d-flex">
+                  <label class="form-control-label px-3">Last Name<span class="text-danger"> *</span></label>
+                  <input type="text" name="prenom" id="prenom" class="form-control" [(ngModel)]="livreur.prenom" required
+                         minlength="3" #ln="ngModel">
+                  <div class="alert alert-danger" *ngIf="ln.invalid && ln.touched">
+                    <div *ngIf="ln.hasError('required')"> Last Name is a required field</div>
+                    <div *ngIf="ln.hasError('minlength')"> Last Name minlength is equal to 3</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-60 flex-column d-flex">
+                  <label class="form-control-label px-30">City<span class="text-danger"> *</span></label>
+                  <input type="text" name="ville" id="ville" class="form-control" [(ngModel)]="livreur.ville" required
+                         minlength="3" #fn="ngModel">
+                  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')"> City is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')"> City minlength is equal to 3</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-sm-60 flex-column d-flex">
+                  <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label>
+                  <input type="email" name="adresse" id="adresse" class="form-control" [(ngModel)]="livreur.adresseEmail"
+                         required minlength="3" #fn="ngModel">
+                  <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                    <div *ngIf="fn.hasError('required')">Email is a required field</div>
+                    <div *ngIf="fn.hasError('minlength')"> Email minlength is equal to 3</div>
+                  </div>
+
+                  <div style="padding-top: 20px" class="form-group col-sm-60 flex-column d-flex">
+                    <label class="form-control-label px-3">Phone number<span class="text-danger"> *</span></label>
+                    <input type="text" name="telephone" id="telephone" class="form-control" [(ngModel)]="livreur.telephone"
+                           required minlength="3" #fn="ngModel">
+                    <div class="alert alert-danger" *ngIf="fn.invalid && fn.touched">
+                      <div *ngIf="fn.hasError('required')"> Phone number is a required field</div>
+                      <div *ngIf="fn.hasError('minlength')"> Phone number minlength is equal to 3</div>
+                    </div>
+
+                    <div style="padding-top: 20px"  class="form-group col-sm-60 flex-column d-flex">
+                      <mat-form-field appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="!hide?'text':'password'" [(ngModel)]="livreur.mdp" #fn="ngModel">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" [(ngModel)]="livreur.mdp">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                      </mat-form-field>
+                    </div>
+                  </div>
+
+                  <div  class="form-group col-sm-60 flex-column d-flex">
+                    <label class="form-control-label px-3">Account Status<span class="text-danger"> *</span></label>
+                    <mat-radio-button value="1" [(ngModel)]="livreur.statutCompte">Active</mat-radio-button>
+                    <mat-radio-button value="0" [(ngModel)]="livreur.statutCompte">Not active</mat-radio-button>
+                  </div>
+                  <div class="form-group col-sm-60 flex-column d-flex">
+                    <input #file type="file" accept='image/*' (change)="preview(file.files)" [(ngModel)]="livreur.imgURL"/>
+                    <img [src]="imgURL" height="200" *ngIf="imgURL">
+                  </div>
+
+                  <div class="row justify-content-end">
+                    <div class="form-group col-auto"> <button class="btn-primary" (click)="f.reset()">Reset</button> </div>
+                    <div class="form-group col-auto"> <button type="submit" class="btn-primary" (click)="update()"
+
+                                                              [disabled]="f.invalid">Register</button> </div>
+                  </div>
+                </div>
+              </div>
+

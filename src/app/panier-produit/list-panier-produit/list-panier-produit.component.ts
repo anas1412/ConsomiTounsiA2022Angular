@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, NgModule } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {IFactureServices} from "../../facture/service/facture.service";
 import {IPanierProduitServices} from "../service/panierproduit.service";
 import {IProduitServices} from "../../Produit/services/produit.service";

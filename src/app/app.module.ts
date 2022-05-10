@@ -5,13 +5,17 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import {MatRadioModule} from "@angular/material/radio";
+import { CreateReclamationComponent } from './reclamation/create-reclamation/create-reclamation.component';
+import { UpdateReclamationComponent } from './reclamation/update-reclamation/update-reclamation.component';
+import { ListReclamationComponent } from './reclamation/list-reclamation/list-reclamation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from '@angular/material/select';
 import { ListProduitComponent } from './Produit/list-produit/list-produit.component';
@@ -51,9 +55,24 @@ import { ListAllEventsComponent } from './event/list-all-events/list-all-events.
 import { EventDetailsComponent } from './event/event-details/event-details.component';
 import { ListFrontCagnotteComponent } from './cagnotte/list-front-cagnotte/list-front-cagnotte.component';
 import { AddSommeComponent } from './cagnotte/add-somme/add-somme.component';
-
-
-
+import { FormLivreurComponent } from './livreur/form-livreur/form-livreur.component';
+import { ListLivreurComponent } from './livreur/list-livreur/list-livreur.component';
+import { UpdateLivreurComponent } from './livreur/update-livreur/update-livreur.component';
+import { LivreurDetailsComponent } from './livreur/livreur-details/livreur-details.component';
+import { HiringLivreurComponent } from './livreur/hiring-livreur/hiring-livreur.component';
+import { AnnulercommandeComponent } from './reclamation/annulercommande/annulercommande.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormLivraisonComponent } from './livraison/form-livraison/form-livraison.component';
+import { AssignLivraisonComponent } from './livreur/assign-livraison/assign-livraison.component';
+import {MainLivraisonComponent} from "./livraison/main-livraison/main-livraison.component";
+import {LivraisonDelaiComponent} from "./livraison/livraison-delai/livraison-delai.component";
+import {LivraisonFrontComponent} from "./livraison/livraison-front/livraison-front.component";
+import {MatToolbarModule} from "@angular/material/toolbar";
+// @ts-ignore
+import { Ng2GoogleChartsModule } from 'ng2-google-charts';
+// @ts-ignore
+//import {AgmCoreModule} from "@agm/core";
+import { ReclamationFrontComponent } from './reclamation/reclamation-front/reclamation-front.component';
 
 @NgModule({
   declarations: [
@@ -93,16 +112,31 @@ import { AddSommeComponent } from './cagnotte/add-somme/add-somme.component';
     ListAllEventsComponent,
     EventDetailsComponent,
     ListFrontCagnotteComponent,
-    AddSommeComponent
+    AddSommeComponent,
+    CreateReclamationComponent,
+    UpdateReclamationComponent,
+    ListReclamationComponent,
+    FormLivreurComponent,
+    ListLivreurComponent,
+    UpdateLivreurComponent,
+    LivreurDetailsComponent,
+    HiringLivreurComponent,
+    AnnulercommandeComponent,
+    FormLivraisonComponent,
+    AssignLivraisonComponent,
+    MainLivraisonComponent,
+    LivraisonDelaiComponent,
+    LivraisonFrontComponent,
+    ReclamationFrontComponent,
 
   ],
   imports: [
+    MatFormFieldModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     FormsModule,
@@ -110,10 +144,20 @@ import { AddSommeComponent } from './cagnotte/add-somme/add-somme.component';
     MatSelectModule,
     Ng2SearchPipeModule,
     MatPaginatorModule,
-    NgxPaginationModule,
     MatDatepickerModule,
+    ReactiveFormsModule,
+    MatRadioModule,
+    MatToolbarModule,
+    Ng2GoogleChartsModule,
+    NgxPaginationModule,
+    //AgmCoreModule,
+    //AgmCoreModule.forRoot({
+    //  apiKey: 'AIzaSyAGYgVjHtRbXAjZYWma3JQCvebjynCraoQ'}
+    //)
+
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

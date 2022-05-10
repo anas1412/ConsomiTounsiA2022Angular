@@ -12,7 +12,6 @@ import {DetailFactureComponent} from "./facture/detail-facture/detail-facture.co
 import {ListFactureBackComponent} from "./facture/list-facture-back/list-facture-back.component";
 import {DetailPaiementComponent} from "./paiement/detail-paiement/detail-paiement.component";
 import {ListPanierProduitComponent} from "./panier-produit/list-panier-produit/list-panier-produit.component";
-
 import { ListEventComponent } from './event/list-event/list-event.component';
 import { CagnotteListBackComponent } from './cagnotte/cagnotte-list-back/cagnotte-list-back.component';
 import { DownloadPDFComponent } from './event/download-pdf/download-pdf.component';
@@ -20,6 +19,18 @@ import { ListAllEventsComponent } from './event/list-all-events/list-all-events.
 import { ListEventFrontComponent } from './event/list-event-front/list-event-front.component';
 import { EventDetailsComponent } from './event/event-details/event-details.component';
 import { ListFrontCagnotteComponent } from './cagnotte/list-front-cagnotte/list-front-cagnotte.component';
+import { ListLivreurComponent } from './livreur/list-livreur/list-livreur.component';
+import {ListReclamationComponent} from "./reclamation/list-reclamation/list-reclamation.component";
+import {LivreurDetailsComponent} from "./livreur/livreur-details/livreur-details.component";
+import {HiringLivreurComponent} from "./livreur/hiring-livreur/hiring-livreur.component";
+import {AnnulercommandeComponent} from "./reclamation/annulercommande/annulercommande.component";
+import {AssignLivraisonComponent} from "./livreur/assign-livraison/assign-livraison.component";
+import {MainLivraisonComponent} from "./livraison/main-livraison/main-livraison.component";
+import {FormLivraisonComponent} from "./livraison/form-livraison/form-livraison.component";
+import {LivraisonDelaiComponent} from "./livraison/livraison-delai/livraison-delai.component";
+import {LivraisonFrontComponent} from "./livraison/livraison-front/livraison-front.component";
+import {ReclamationFrontComponent} from "./reclamation/reclamation-front/reclamation-front.component";
+
 
 
 
@@ -45,6 +56,18 @@ const routes: Routes = [
   },{
     path: 'eventdetail',
     component: EventDetailsComponent
+  }, {
+    path: 'reclamation',
+    component: ListReclamationComponent
+  },{
+    path: 'livreur',
+    component: ListLivreurComponent
+  },{
+    path: 'livreurdetail',
+    component: LivreurDetailsComponent
+  },{
+  path:'recruter',
+  component: HiringLivreurComponent
   },{
     path: 'produit',
     component: ListProduitComponent
@@ -84,7 +107,28 @@ const routes: Routes = [
   },{
     path: 'cagnottefront',
     component: ListFrontCagnotteComponent
-  }
+},{
+    path: 'annulercommande',
+    component: AnnulercommandeComponent
+  },{
+  path:'assign-livraison/:id',
+    component: AssignLivraisonComponent
+}, {
+  path:'livraison',
+    component: MainLivraisonComponent
+  }, {
+    path:'add-livraison',
+    component: FormLivraisonComponent
+},{
+    path:'delai-livraison',
+    component: LivraisonDelaiComponent
+  },{
+    path:'front-livraison',
+    component: LivraisonFrontComponent
+  },{
+    path: 'front-reclamation',
+    component: ReclamationFrontComponent
+  },
 ];
 
 @NgModule({

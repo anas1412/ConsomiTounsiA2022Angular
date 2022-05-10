@@ -1,3 +1,4 @@
+
 .overlay {
   position: fixed;
   top: 0;
@@ -69,4 +70,8 @@
   text-transform: capitalize;
   font-size: 35px;
   font-weight: 300;
+}
+agm-map {
+  height:800px;
+  width: 1800px;
 }

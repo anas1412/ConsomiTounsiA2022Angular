@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CreateCagnotteComponent } from './create-cagnotte.component';
 
 describe('CreateCagnotteComponent', () => {

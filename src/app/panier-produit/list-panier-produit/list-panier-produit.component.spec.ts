@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListFactureBackComponent } from './list-facture-back.component';
+import { ListPanierProduitComponent } from './list-panier-produit.component';
 
-describe('ListFactureBackComponent', () => {
-  let component: ListFactureBackComponent;
-  let fixture: ComponentFixture<ListFactureBackComponent>;
+describe('ListPanierProduitComponent', () => {
+  let component: ListPanierProduitComponent;
+  let fixture: ComponentFixture<ListPanierProduitComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListFactureBackComponent ]
+      declarations: [ ListPanierProduitComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListFactureBackComponent);
+    fixture = TestBed.createComponent(ListPanierProduitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

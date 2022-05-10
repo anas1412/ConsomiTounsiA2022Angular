@@ -1,0 +1,32 @@
+<div class="container  ">
+  <div class=" text-center mt-1000 ">
+    <h1 mat-dialog-title>Modify Reclamation</h1>
+  </div>
+  <div class="row ">
+    <div class="col-lg-700 mx-auto">
+      <div class="card mt-2000 mx-auto p-1000 bg-light">
+        <div class="card-body bg-light">
+          <div class="container ">
+            <form class="form-card" #f="ngForm">
+              <div class="row justify-content-between text-left">
+
+
+                <div class="form-group col-sm-60 flex-column d-flex">
+                  <label class="form-control-label px-3">Reclamation Type<span class="text-danger"> *</span></label>
+                  <select  name="type" id="type" class="form-control" [(ngModel)]="reclamation.type" >
+                    <option  [(ngModel)]="reclamation.type">Remboursement</option>
+                    <option [(ngModel)]="reclamation.type">Echange</option>
+                    <option [(ngModel)]="reclamation.type">Réparation</option>
+                  </select>
+
+
+                  <div class="form-group col-sm-60 flex-column d-flex">
+                    <label class="form-control-label px-3">Description<span class="text-danger"> *</span></label>
+                    <textarea required matInput name="description" id="Description" class="form-control" placeholder="Description" [(ngModel)]="reclamation.description"></textarea>
+
+                  </div>
+                  <div mat-dialog-actions align="end" class="row justify-content-end">
+                    <div class="form-group col-auto"> <button mat-raised-button mat-dialog-close type="submit" class="btn-primary">Exit</button></div>
+                    <div class="form-group col-auto"><button mat-flat-button (click)="update()" type="submit" class="btn-primary">Submit</button></div>
+
+                  </div>
