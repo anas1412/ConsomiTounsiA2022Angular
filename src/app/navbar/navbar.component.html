@@ -11,13 +11,13 @@
 
 
           <li class="nav-item" *ngIf="showAdminBoard">
-            <a href="/admin" class="nav-link" routerLink="admin">Admin Board</a>
+            <a href="/admin" class="nav-link" routerLink="admin">Board</a>
           </li>
 
           <li class="nav-item" role="presentation"><a class="nav-link" href="/" routerLink="/"  *ngIf="!admin"  >Home</a></li>
 
-          <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" routerLink="/produitAll">Produit </a>
-            <div class="dropdown-menu" role="menu" *ngIf="isLoggedIn" ><a class="dropdown-item" role="presentation" href="#" routerLink="/produit"  >Vos produits</a><a class="dropdown-item" role="presentation" href="#" routerLink="/stock" *ngIf="isLoggedIn" >List Stocks</a>
+          <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#" routerLink="/produitAll">Products </a>
+            <div class="dropdown-menu" role="menu" *ngIf="isLoggedIn" ><a class="dropdown-item" role="presentation" href="#" routerLink="/produit"  >Your products</a><a class="dropdown-item" role="presentation" href="#" routerLink="/stock" *ngIf="isLoggedIn" >Current Stocks</a>
               <a class="dropdown-item" role="presentation" href="#" routerLink="/stockback"  >Stock</a></div>
           </li>
           <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Events </a>
@@ -62,7 +62,7 @@
               <a class="dropdown-item" href="property-single.html" routerLink="/publicationadmin" *ngIf="admin">AdminPosts</a>
               <a class="dropdown-item" href="property-single.html" routerLink="/reclamation" *ngIf="admin">Reclamations</a>
               <a class="dropdown-item" href="property-single.html" routerLink="/annulercommande" *ngIf="!admin"  >Cancel commands</a>
-              <a class="dropdown-item" href="property-single.html" routerLink="/front-reclamation" (click)="openAddDialog()" *ngIf="!admin" >Retour & remboursement</a>
+              <a class="dropdown-item" href="property-single.html" routerLink="/front-reclamation" (click)="openAddDialog()" *ngIf="!admin" >Return & refund</a>
             </div>
           </li>
 

@@ -1,13 +1,13 @@
-<h1 mat-dialog-title>Ajouter une publication</h1>
+<h1 mat-dialog-title>Add publication</h1>
 <div mat-dialog-content>
   <mat-form-field appearance="outline">
-    <mat-label>Titre</mat-label>
-    <input required matInput placeholder="Ajouter un code" [(ngModel)]="publication.content">
+    <mat-label>Title</mat-label>
+    <input required matInput placeholder="Add content" [(ngModel)]="publication.content">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>Description</mat-label>
-    <textarea required matInput  placeholder="Ajouter une description" [(ngModel)]="publication.title"></textarea>
+    <textarea required matInput  placeholder="Add description" [(ngModel)]="publication.title"></textarea>
   </mat-form-field>
   <input type="Date" name="date1" [(ngModel)]="publication.createdAt">
   <input type="Date" name="date2" [(ngModel)]="publication.updatedAt" >

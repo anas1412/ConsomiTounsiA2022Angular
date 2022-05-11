@@ -1,14 +1,14 @@
-<h1 mat-dialog-title>Modifier Produit</h1>
+<h1 mat-dialog-title>Update publication</h1>
 <div mat-dialog-content>
 
   <mat-form-field appearance="outline">
     <mat-label>content</mat-label>
-    <input matInput placeholder="Modifier le libelle" [(ngModel)]="publication.content">
+    <input matInput placeholder="update content" [(ngModel)]="publication.content">
   </mat-form-field>
 
   <mat-form-field appearance="outline">
     <mat-label>title</mat-label>
-    <input matInput placeholder="Modifier le prix" [(ngModel)]="publication.title">
+    <input matInput placeholder="update title" [(ngModel)]="publication.title">
   </mat-form-field>
   <input type="Date" name="date1" [(ngModel)]="publication.createdAt">
   <input type="Date" name="date2" [(ngModel)]="publication.updatedAt" >

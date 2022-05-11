@@ -1,7 +1,93 @@
-<div class="container">
-  <header class="jumbotron">
+<br>
 
-    <h3> ADDDMIIINNNEEEE HHNNAAAa </h3>
-   <!--  <p>{{ content }}</p>-->
-  </header>
+    <h1 id="cc">Statistics</h1>
+    <br>
+
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <google-chart
+    [data]="GoogleChartInterface"
+  >
+  </google-chart>
+</div>
+
+<div  style="margin: 5%;" class="card-wrapper row">
+  <form class="form" [formGroup]="form">
+    <div class="form-group">
+      <label for="user">User</label>
+      <select  (change)="somethingChanged()" formControlName="user" name="user" class="form-control" id="user">
+        <option *ngFor="let user of users" [value]="user.id" style="background-color: #fe5d93" >{{user.email}}</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<div  style="margin: 5%;" class="card-wrapper row">
+  <mat-card *ngIf="isDataAvailable" class="col-sm-6">
+    <mat-card-header>
+      <mat-card-subtitle>
+        sort by comments
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div >
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+          >
+          </canvas>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="isDataAvailable1" class="col-sm-6">
+    <mat-card-header>
+      <mat-card-subtitle>
+        sort by reactions
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div >
+          <canvas baseChart
+                  [datasets]="barChartData1"
+                  [labels]="barChartLabels1"
+                  [options]="barChartOptions1"
+                  [legend]="barChartLegend1"
+          >
+          </canvas>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin-left: 300px;margin-top: 30px " *ngIf="isDataAvailable2" class="col-sm-6">
+    <mat-card-header>
+      <mat-card-subtitle>
+        sort by userPreferences
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <div >
+          <canvas baseChart
+                  [datasets]="barChartData2"
+                  [labels]="barChartLabels2"
+                  [options]="barChartOptions2"
+                  [legend]="barChartLegend2"
+          >
+          </canvas>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
 </div>

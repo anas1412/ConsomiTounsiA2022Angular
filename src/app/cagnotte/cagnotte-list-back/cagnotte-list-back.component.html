@@ -3,7 +3,7 @@
 <br>
 <div class=" container-fluid" >
   <div class="col-12 d-flex justify-content-lg-end">
-    <button class="btn-primary btn" (click)="openAddDialog()" id="bb"> Add a kitty </button>
+    <button class="btn-primary btn" (click)="openAddDialog()" id="bb"> Add Jackpot </button>
   </div>
 </div>
 <section class="intro-single">
@@ -11,7 +11,7 @@
       <div class="row">
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
-            <h1 class="title-single">Our cagnottes</h1>
+            <h1 class="title-single">Our Jackpots</h1>
             <span class="color-text-a">all the jackpots</span>
           </div>
         </div>
@@ -30,17 +30,17 @@
       </div>
     </div>
   </section>
-  
-  
-  
+
+
+
   <section class="property-grid grid">
-  
-  
-    
-  
+
+
+
+
   <br>
   <br>
-  
+
    <div class="container">
        <div class="row">
         <!--<div class="col-sm-12">
@@ -55,9 +55,9 @@
             </form>
           </div>
         </div> -->
-  
-  
-  
+
+
+
         <div class="col-md-4" *ngFor="let cagnote of cagnotte">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
@@ -75,60 +75,60 @@
                   <div class="price-box d-flex">
                     <span class="price-a" >{{cagnote.totalsomme}} Dinars</span>
                   </div>
-  
-  
+
+
                   <a>
                     <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="supprimer(cagnote.idCagnotte)" id="delete" >
                       <mat-icon>delete</mat-icon>
                     </button>
                   </a>
-  
+
                   <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="openUpdateDialog(cagnote.idCagnotte)" id="update" >
                     <mat-icon>edit </mat-icon>
-  
+
                   </button>
-  
-  
-  
+
+
+
                 </div>
                 <div class="card-footer-a">
                   <ul class="card-info d-flex justify-content-around">
                     <li>
                       <h4 class="card-info-title">Creation date</h4>
                       <span>{{cagnote.dateCreation| date}}
-  
+
                         </span>
                     </li>
-  
+
                     <li>
                       <h4 class="card-info-title"></h4>
                       <span></span>
                     </li>
-  
-              
+
+
                     <li>
                       <h4 class="card-info-title"></h4>
                       <span></span>
                     </li>
-  
-  
-  
+
+
+
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
   </section>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+

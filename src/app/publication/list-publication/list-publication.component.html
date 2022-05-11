@@ -1,6 +1,6 @@
 <div  class=" container-fluid" >
   <div class="col-12 d-flex justify-content-lg-end">
-    <button class="btn-primary btn" (click)="openAddDialog()" id="bb">  Ajouter une publication </button>
+    <button class="btn-primary btn" (click)="openAddDialog()" id="bb">  Add a post </button>
   </div>
 </div>
 <section class="intro-single">
@@ -8,8 +8,8 @@
     <div class="row">
       <div class="col-md-12 col-lg-8">
         <div class="title-single-box">
-          <h1 class="title-single">Nos incroy</h1>
-          <span class="color-text-a">les publications</span>
+          <h1 class="title-single">Our Posts</h1>
+          <span class="color-text-a">All the posts </span>
         </div>
       </div>
       <div class="col-md-12 col-lg-4">
@@ -76,14 +76,14 @@
                 <div class="card-footer-a">
                   <ul class="card-info d-flex justify-content-around">
                     <li>
-                      <h4 class="card-info-title">Date Début</h4>
+                      <h4 class="card-info-title">Start Date</h4>
                       <span>{{publication.createdAt| date}}
 
                         </span>
                     </li>
 
                     <li>
-                      <h4 class="card-info-title">Date Fin</h4>
+                      <h4 class="card-info-title">End Date</h4>
                       <span>{{publication.updatedAt| date}}</span>
                     </li>
                   </ul>
