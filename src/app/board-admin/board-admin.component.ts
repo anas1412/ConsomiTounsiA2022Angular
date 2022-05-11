@@ -10,6 +10,8 @@ import {PublicationService} from "../publication/services/publication.service";
 import {CommentaireService} from "../publication/services/commentaire.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Publication} from "../publication/model/publication";
+import { AuthService } from '../_services/auth.service';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ import {Publication} from "../publication/model/publication";
   styleUrls: ['./board-admin.component.css']
 })
 export class BoardAdminComponent implements OnInit {
+
   content?: string;
   id:any
   x1: any;
@@ -46,6 +49,7 @@ export class BoardAdminComponent implements OnInit {
   constructor(private userService: UserService,private livraisonService: ILivraisonService,
   private service: PublicationService,
   private commService:CommentaireService,
+                           private authService:AuthService,
   private formBuilder: FormBuilder,private router:Router) { }
 
   pdelivered:any
@@ -89,6 +93,8 @@ export class BoardAdminComponent implements OnInit {
       error: err => {
         this.content = JSON.parse(err.error).message;
       }
+
+
 
 
     });

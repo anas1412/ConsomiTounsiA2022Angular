@@ -7,6 +7,9 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+
+  title = 'logoconsomitounsi';
+  logocomsomitounsi:string = "assets/img/1.png";
   currentUser: any;
 
   constructor(private token: TokenStorageService) { }
@@ -14,6 +17,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
 
     this.currentUser = this.token.getUser();
-    console.log(this.currentUser); 
+    console.log(this.currentUser);
   }
 }
