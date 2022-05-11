@@ -39,7 +39,7 @@ export class CreatePaiementComponent implements OnInit {
   }
 
   add() {
-
+    this.paiement.sommetotal = this.price;
     this.service.save(this.paiement,this.currentUser.id).subscribe(r =>
       //this.p = r,
       this.openShowDialog3(r)
