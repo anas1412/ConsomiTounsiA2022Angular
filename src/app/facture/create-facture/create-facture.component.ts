@@ -36,7 +36,7 @@ export class CreateFactureComponent implements OnInit {
   add() {
     this.service.save(this.facture,this.data.id).subscribe(r =>
     this.dialogRef.close())
-    alert("La list des factures à été mise a jour!")
+    alert("The list of bills has been updated!")
   }
 
 }

@@ -28,10 +28,10 @@
             <div class="col-lg-12 mt-3">
               <div class="row">
                 <div class="col-lg-6 pb-2">
-                  <a href="#" class="btn btn-success w-100"><mat-icon>add_shopping_cart</mat-icon>Add To Cart</a>
+                  <button href="#" class="btn btn-success w-100" (click)="openShowDialog3(produit)"><mat-icon>add_shopping_cart</mat-icon>Add To Cart</button>
                 </div>
                 <div class="col-lg-6">
-                  <a href="#" class="btn btn-danger w-100" routerLink="/produitAll">Cancel</a>
+                  <a href="#" class="btn btn-danger w-100"  (click)="cancel()">Cancel</a>
                 </div>
               </div>
             </div>

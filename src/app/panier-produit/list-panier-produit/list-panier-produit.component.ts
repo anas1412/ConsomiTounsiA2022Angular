@@ -94,12 +94,28 @@ export class ListPanierProduitComponent implements OnInit {
     return totalPrice;
   }
 
-  viderPanier(){
-    if(confirm('Voulez vous vider le panier?')) {
+  viderPaniertest(){
+    if(confirm('Do you want to empty the basket?')) {
     let i: number;
     for (let i of this.panierProduits ) {
       this.removePP(i.idPanierProduit);
       this.ngOnInit();
+      }
+    }
+  }
+
+  viderPanier() {
+    if (confirm('Do you want to empty the basket?')) {
+      let i: number;
+
+      for (let i of this.panierProduits) {
+        console.log(i.produit?.idProduit);
+        this.service.removeFromPanier(this.currentUser.id, i.produit?.idProduit)
+          .subscribe(data => {
+            console.log("deleted");
+            this.ngOnInit();
+          }, error => console.log(error));
+        this.ngOnInit();
       }
     }
   }
@@ -111,7 +127,7 @@ export class ListPanierProduitComponent implements OnInit {
   }
 
   removePP(produitId: any){
-    if(confirm('Voulez vous vraiment supprimer ce produit?')) {
+    if(confirm('Do you really want to delete this product?')) {
       this.service.removeFromPanier(this.currentUser.id, produitId)
         .subscribe(data => {
           console.log("deleted");

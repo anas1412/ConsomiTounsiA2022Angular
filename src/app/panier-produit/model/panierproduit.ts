@@ -4,7 +4,7 @@ export interface iPanierProduit{
   idPanierProduit?: number;
   quantity?: number;
   somme?: number;
-  produit?: Produit;
+  produit?: any;
   user?: any;
 
 }
@@ -14,7 +14,7 @@ export class PanierProduit implements iPanierProduit {
     public idPanierProduit?: number,
     public quantity?: number,
     public somme?: number,
-    public produit?: Produit,
+    public produit?: any,
     public user?: any,
 
   ) {

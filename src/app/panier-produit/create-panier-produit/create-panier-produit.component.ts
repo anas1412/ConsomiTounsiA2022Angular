@@ -34,7 +34,7 @@ export class CreatePanierProduitComponent implements OnInit {
   add() {
     this.service.addToPanier(this.panierproduit,this.data.id,this.panierproduit?.quantity,this.currentUser.id).subscribe(r =>
       this.dialogRef.close())
-    alert("Produit a été ajouter au panier!")
+    alert("Product has been added to cart!")
   }
 
 }
