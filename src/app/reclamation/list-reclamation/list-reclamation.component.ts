@@ -7,6 +7,7 @@ import {UpdateReclamationComponent} from "../update-reclamation/update-reclamati
 import swal from "sweetalert";
 import {Subscription} from "rxjs";
 import {Router} from "@angular/router";
+import {TokenStorageService} from "../../_services/token-storage.service";
 //import {GoogleChartType} from "ng2-google-charts";
 
 
@@ -27,9 +28,11 @@ export class ListReclamationComponent implements OnInit {
   daterec:any
   reclamations: Reclamation[] = [];
   searchText:any;
+  currentUser: any
   @Input() listReclamation: Reclamation[];
   @Output() deleteEvent = new EventEmitter<Reclamation>();
   constructor(
+    private token: TokenStorageService,
     private dialog: MatDialog,
     private service: IReclamationService,
     public router: Router

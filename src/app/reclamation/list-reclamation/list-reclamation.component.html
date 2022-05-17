@@ -21,7 +21,6 @@
   <table class="table">
     <thead>
     <tr>
-      <th scope="col">User_email</th>
       <th scope="col">Type</th>
       <th scope="col">Reclamation date</th>
       <th scope="col">Description</th>
@@ -30,7 +29,6 @@
     </thead>
     <tbody>
     <tr *ngFor="let reclamation of reclamations | filter: searchText">
-      <td>{{reclamation.mail}}</td>
       <td>{{reclamation.type}}</td>
       <td>{{reclamation.dateRec  | date:'longDate'}}</td>
       <td>{{reclamation.description}}</td>
