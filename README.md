@@ -1,27 +1,34 @@
-# Cloudpi
+# ConsomiTounsiA2022
+## Projet Consomi Tounsi A 2022 4ARCTIC5
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.3.
+C'est une plateforme de gestion de produits 100% tunisiens.
+Le but est de gérer une boutique qui commercialise exclusivement des produits tunisiens, tout en assurant
+une bonne expérience utilisateur en facilitant l’accès aux produits ainsi que l’achat.
+En effet, l’utilisateur aura droit à une livraison à domicile ainsi qu’au service après-vente.
+Un espace caritatif est exactement fourni à travers la collecte de cagnottes ainsi que l’organisation d’évènements caritatifs.
 
-## Development server
+#### Membres de projets:
+- Anas BASSOUMI
+- Nour MRAD
+- Ghassen RIAHI
+- Ghada CHEBBI
+- Heni HADJ SESSI
+- Nour MALLEK
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Requirements:
+```
+MySQL (BD: comnsomitounsi)
+STS (Spring Tools Suite)
+NodeJS
+Webstorm (or others)
+type "node install" dans le console de webstorm de frontend pour installer les dépendeances
+```
+#### Notes:
 
-## Code scaffolding
+[Backend developé avec Spring BOOT Java](https://github.com/anas1412/ConsomiTounsiA2022).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+[Frontend developé avec Angular JS](https://github.com/anas1412/ConsomiTounsiA2022Angular).
 
-## Build
+NB: Il faut qu'un base de donnée nommé comnsomitounsi est crée avant de lancement pour bon fonctionnement.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
